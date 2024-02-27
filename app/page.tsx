@@ -1,5 +1,7 @@
 import Builder from '@/components/Builder';
 import { Metadata } from 'next';
+import Title from 'antd/es/typography/Title';
+import { Flex } from 'antd';
 
 // either Static metadata
 export const metadata: Metadata = {
@@ -10,7 +12,10 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="container py-10 px-4">
+    <main className="max-w-screen-sm py-10 mx-auto">
+      <Flex justify="center" className="mb-5">
+        <Title level={3}>Add Comments to Your Website</Title>
+      </Flex>
       <Builder />
     </main>
   );
