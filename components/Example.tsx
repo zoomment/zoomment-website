@@ -39,7 +39,6 @@ export default function Example({
         data-theme={theme}
         data-language={lng}
         data-emotions="❤️,😀,🪄,🥸,💡,🤔,💩,😢"
-        data-api-url="https://api.zoomment.com/api"
       ></div>
       <Script src="https://cdn.zoomment.com/zoomment.min.js"></Script>
     </>

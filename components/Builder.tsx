@@ -18,7 +18,6 @@ export default function Builder() {
     data-theme="${theme}"
     data-language="${lng}"
     data-emotions="❤️,😀,🪄,🥸,💡,🤔,💩,😢"
-    data-api-url="https://api.zoomment.com/api"
   ></div>
   <script src='https://cdn.zoomment.com/zoomment.min.js'></script>
         `}
