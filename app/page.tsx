@@ -1,4 +1,4 @@
-import Builder from '@/components/Builder';
+import Example from '@/components/Example';
 import { Metadata } from 'next';
 import Title from 'antd/es/typography/Title';
 import { Tag } from 'antd';
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="max-w-screen-sm py-10 mx-auto">
+    <main className="max-w-screen-sm py-12 mx-auto">
       <div className="mb-5 flex flex-col justify-center items-center">
         <Title
           style={{
@@ -38,7 +38,7 @@ export default function Home() {
           Add Comments to Your Website
         </Title>
       </div>
-      <Builder />
+      <Example lng="en" theme="light" />
     </main>
   );
 }
