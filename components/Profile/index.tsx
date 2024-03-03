@@ -27,7 +27,9 @@ export default function Profile() {
           ],
         }}
       >
-        <Avatar size={28} icon={<UserOutlined />} />
+        <div style={{ cursor: 'pointer', display: 'inline-block' }}>
+          <Avatar size={28} icon={<UserOutlined />} />
+        </div>
       </Dropdown>
     </div>
   );
