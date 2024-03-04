@@ -8,12 +8,14 @@ import { request } from '@/utils';
 const Auth: React.FC = () => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
   const onFinish = async (values: any) => {
+    setLoading(true);
     await request({
       path: '/users/auth',
       method: 'POST',
@@ -22,6 +24,7 @@ const Auth: React.FC = () => {
 
     setEmail(values.email);
     setSubmitted(true);
+    setLoading(false);
   };
 
   return (
@@ -75,7 +78,7 @@ const Auth: React.FC = () => {
               >
                 <Input placeholder="Your email" />
               </Form.Item>
-              <Button type="primary" htmlType="submit">
+              <Button loading={loading} type="primary" htmlType="submit">
                 Continue
               </Button>
             </Form>
