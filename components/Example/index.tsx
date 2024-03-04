@@ -27,7 +27,7 @@ export default function Example({
         )}
         {`   data-emotions="❤️,😀,🪄,🥸,💡,🤔,💩,😢"\n`}
         {` ></div>\n`}
-        {` <script src='https://cdn.zoomment.com/zoomment.min.js'></script>`}
+        {` <script src="https://cdn.zoomment.com/zoomment.min.js"></script>`}
       </pre>
     </div>
   );
