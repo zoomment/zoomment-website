@@ -17,7 +17,7 @@ export default function Profile() {
 
   return (
     profile && (
-      <div className="" style={{ maxWidth: 200 }}>
+      <div style={{ maxWidth: 200 }}>
         <Dropdown
           menu={{
             items: [

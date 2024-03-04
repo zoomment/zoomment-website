@@ -32,7 +32,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         style={{
           margin: '0 auto',
           padding: '0 20px',
-          maxWidth: 800,
+          maxWidth: 1000,
           width: '100%',
         }}
       >
@@ -43,6 +43,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         </Breadcrumb>
         <div
           style={{
+            position: 'relative',
             padding: 24,
             minHeight: 360,
             background: colorBgContainer,

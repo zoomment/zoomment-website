@@ -1,5 +1,6 @@
 import Example from '@/components/Example';
 import { Metadata } from 'next';
+import Script from 'next/script';
 import Title from 'antd/es/typography/Title';
 import { Tag } from 'antd';
 
@@ -39,6 +40,15 @@ export default function Home() {
         </Title>
       </div>
       <Example lng="en" theme="light" />
+      <div
+        style={{ marginTop: 20 }}
+        id="zoomment"
+        className="w-full"
+        data-theme="light"
+        data-language="en"
+        data-emotions="❤️,😀,🪄,🥸,💡,🤔,💩,😢"
+      ></div>
+      <Script src="https://cdn.zoomment.com/zoomment.min.js"></Script>
     </main>
   );
 }

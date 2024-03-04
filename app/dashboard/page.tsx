@@ -1,7 +1,8 @@
 import React from 'react';
+import AddFirstSite from '@/components/AddFirstSite';
 
 const Dashboard: React.FC = () => {
-  return <div>No added site yet.</div>;
+  return <AddFirstSite />;
 };
 
 export default Dashboard;
