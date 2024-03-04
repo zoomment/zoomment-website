@@ -25,7 +25,7 @@ export default function AddFirstSite() {
       <Title level={4}>Manage Your Site Comments Here!</Title>
       <Text style={{ marginBottom: 30, maxWidth: 400 }}>
         Add your site to the dashboard and take control of your comments. Click
-        "Add new site" to get started.
+        &quot;Add new site&quot; to get started.
       </Text>
       <Button
         onClick={() => router.push('/dashboard/add')}

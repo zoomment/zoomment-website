@@ -12,15 +12,15 @@ const Add: React.FC = () => {
         Step 1. Setup Widget
       </Title>
       <Paragraph style={{ marginBottom: 20 }}>
-        Add the "data-token" attribute to your existing widget or insert the
-        provided code where you want to receive comments.
+        Add the &quot;data-token&quot; attribute to your existing widget or
+        insert the provided code where you want to receive comments.
       </Paragraph>
       <Example lng="en" theme="light" token="32rf3f4&66t" />
       <Title level={2} style={{ marginTop: 20, marginBottom: 10 }}>
         Step 2. Verify Ownership
       </Title>
       <Paragraph style={{ marginBottom: 20 }}>
-        Enter the full URL where you've inserted the widget.
+        Enter the full URL where you&apos;ve inserted the widget.
       </Paragraph>
       <Form size="large">
         <Form.Item
