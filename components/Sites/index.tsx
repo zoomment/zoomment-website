@@ -59,7 +59,7 @@ const Sites = (props: Props) => {
           {!loading && comments.length > 0 ? (
             <div>
               {comments.map((comment) => (
-                <div>
+                <div key={comment._id}>
                   Page URL: {comment.pageUrl} <br />
                   Author: {comment.author}
                   <br />
