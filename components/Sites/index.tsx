@@ -1,9 +1,10 @@
 import { Menu, Row, Col, Button } from 'antd';
 import Link from 'next/link';
 import { CommentOutlined } from '@ant-design/icons';
+import { TSite } from '@/types';
 
 type Props = {
-  data: object[];
+  data: TSite[];
 };
 
 const Sites = (props: Props) => {

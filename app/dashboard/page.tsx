@@ -3,6 +3,7 @@ import React from 'react';
 import AddFirstSite from '@/components/AddFirstSite';
 import { request } from '@/utils/request-server';
 import Sites from '@/components/Sites';
+import { TSite } from '@/types';
 
 export const metadata: Metadata = {
   title: 'Zoomment.com | Dashboard',
@@ -11,12 +12,10 @@ export const metadata: Metadata = {
 };
 
 const Dashboard: React.FC = async () => {
-  const sites = await request({
+  const sites: TSite[] = await request({
     method: 'GET',
     path: '/sites',
   });
-
-  console.log(sites);
 
   return <>{sites.length > 0 ? <Sites data={sites} /> : <AddFirstSite />}</>;
 };

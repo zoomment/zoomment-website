@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 import { getCookie } from 'cookies-next';
 import { jwtDecode, JwtPayload } from 'jwt-decode';
-import { User } from '@/types';
+import { TUser } from '@/types';
 
 export const useProfile = () => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<TUser | null>(null);
   const token = getCookie('token');
 
   useEffect(() => {
     if (!token) return;
 
-    setUser(jwtDecode(token) as JwtPayload & User);
+    setUser(jwtDecode(token) as JwtPayload & TUser);
   }, [token]);
 
   return user;
