@@ -1,4 +1,4 @@
 export type TSite = {
-  id: string;
+  _id: string;
   domain: string;
 };
