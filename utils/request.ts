@@ -11,7 +11,7 @@ export const request = async ({
   data = null,
   headers = {},
 }: Options) => {
-  const options = {
+  const options: any = {
     method: method,
     headers: {
       'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ export const request = async ({
       throw new Error(json.message);
     }
     return json;
-  } catch (e) {
+  } catch (e: any) {
     throw new Error(e.message || 'Something went wrong!');
   }
 };
