@@ -1,43 +1,14 @@
 import { getCookie } from 'cookies-next';
+import { request as req, Options } from './request';
 
-export const request = async ({
-  path = '',
-  method = 'GET',
-  data = null,
-  headers = {},
-}: {
-  path?: string;
-  method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'HEAD';
-  data?: object | null;
-  headers?: object;
-}) => {
-  // const cookiesList = cookies();
+export const request = async (options: Options) => {
   const token = getCookie('token') || '';
-  const options = {
-    method: method,
+
+  return req({
+    ...options,
     headers: {
       token,
-      'Content-Type': 'application/json',
-      ...headers,
+      ...options.headers,
     },
-  };
-
-  if (method !== 'GET' && method !== 'HEAD') {
-    options.body = JSON.stringify(data);
-  }
-
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}${path}`,
-    options
-  );
-
-  try {
-    const json = await response.json();
-    if (!response.ok) {
-      throw new Error(json.message);
-    }
-    return json;
-  } catch (e) {
-    throw new Error(e.message || 'Something went wrong!');
-  }
+  });
 };
