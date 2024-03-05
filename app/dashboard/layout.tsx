@@ -9,7 +9,7 @@ const { Content, Footer } = Layout;
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const {
-    token: { colorBgContainer, borderRadiusLG },
+    token: { colorBgContainer, borderRadiusLG, boxShadowTertiary },
   } = theme.useToken();
 
   return (
@@ -24,6 +24,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           top: 0,
           zIndex: 100,
           background: colorBgContainer,
+          boxShadow: boxShadowTertiary,
         }}
       >
         <div></div>
