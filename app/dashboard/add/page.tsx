@@ -1,37 +1,69 @@
 'use client';
 import React from 'react';
-import { Form, Input, Button } from 'antd';
+import { useRouter } from 'next/navigation';
+import { Form, Input, Button, Skeleton } from 'antd';
 import Paragraph from 'antd/es/typography/Paragraph';
 import Title from 'antd/es/typography/Title';
 import Example from '@/components/Example';
+import CodeBox from '@/components/CodeBox';
+import { useProfile, request } from '@/utils';
 
 const Add: React.FC = () => {
+  const profile = useProfile();
+  const router = useRouter();
+
+  const onFinish = async (values: any) => {
+    await request({
+      method: 'POST',
+      path: '/sites',
+      data: {
+        url: values.url,
+      },
+    });
+
+    router.push('/dashboard');
+  };
+
   return (
     <>
       <Title level={2} style={{ marginBottom: 10 }}>
-        Step 1. Setup Widget
+        Step 1. Insert Code
       </Title>
       <Paragraph style={{ marginBottom: 20 }}>
-        Add the &quot;data-token&quot; attribute to your existing widget or
-        insert the provided code where you want to receive comments.
+        Copy and paste the widget code into your website where you want to spark
+        conversations.
       </Paragraph>
-      <Example lng="en" theme="light" token="32rf3f4&66t" />
+      <Example lng="en" theme="light" />
       <Title level={2} style={{ marginTop: 20, marginBottom: 10 }}>
         Step 2. Verify Ownership
       </Title>
       <Paragraph style={{ marginBottom: 20 }}>
-        Enter the full URL where you&apos;ve inserted the widget.
+        Strengthen your website&apos;s identity by adding a unique meta tag just
+        before the {`</head>`} tag in your HTML.
       </Paragraph>
-      <Form size="large">
+      {profile ? (
+        <CodeBox>{`<meta name="zoomment" content="${profile.id}" />`}</CodeBox>
+      ) : (
+        <Skeleton active title={{ style: { height: 52 } }} paragraph={false} />
+      )}
+      <Title level={2} style={{ marginTop: 20, marginBottom: 10 }}>
+        Step 3. Finalize Setup
+      </Title>
+      <Paragraph style={{ marginBottom: 20 }}>
+        Enter your website URL and click &quot;Verify&quot; to complete the
+        setup. Confirm ownership and unlock the full potential of managing
+        comments on your site.
+      </Paragraph>
+      <Form size="large" onFinish={onFinish}>
         <Form.Item
           style={{ marginBottom: 30 }}
-          name={'pageUrl'}
+          name="url"
           rules={[
             { required: true, message: 'URL is required!' },
             { type: 'url', message: 'URL is not a valid!' },
           ]}
         >
-          <Input placeholder="https://zoomment.com/blogs/random-article" />
+          <Input placeholder="https://example.com" />
         </Form.Item>
         <Button loading={false} type="primary" htmlType="submit">
           Verify

@@ -1,15 +1,7 @@
 import Example from '@/components/Example';
-import { Metadata } from 'next';
 import Script from 'next/script';
 import Title from 'antd/es/typography/Title';
 import { Tag } from 'antd';
-
-// either Static metadata
-export const metadata: Metadata = {
-  title: 'Zoomment: Empower Your Website with Open Source Commenting Widget',
-  description:
-    'Enhance engagement on your Static Site Generated (SSG) website effortlessly with Zoomment, an open-source commenting widget. Easily embed Zoomment to receive and manage comments, fostering community interaction seamlessly.',
-};
 
 export default function Home() {
   return (
