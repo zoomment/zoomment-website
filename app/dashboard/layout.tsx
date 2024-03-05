@@ -22,6 +22,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           height: 50,
           position: 'sticky',
           top: 0,
+          zIndex: 100,
           background: colorBgContainer,
         }}
       >
