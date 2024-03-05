@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import React from 'react';
 import AddFirstSite from '@/components/AddFirstSite';
+import { request } from '@/utils/request-server';
+import Sites from '@/components/Sites';
 
 export const metadata: Metadata = {
   title: 'Zoomment.com | Dashboard',
@@ -8,8 +10,15 @@ export const metadata: Metadata = {
     'Enhance engagement on your Static Site Generated (SSG) website effortlessly with Zoomment, an open-source commenting widget. Easily embed Zoomment to receive and manage comments, fostering community interaction seamlessly.',
 };
 
-const Dashboard: React.FC = () => {
-  return <AddFirstSite />;
+const Dashboard: React.FC = async () => {
+  const sites = await request({
+    method: 'GET',
+    path: '/sites',
+  });
+
+  console.log(sites);
+
+  return <>{sites.length > 0 ? <Sites data={sites} /> : <AddFirstSite />}</>;
 };
 
 export default Dashboard;

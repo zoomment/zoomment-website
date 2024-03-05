@@ -1,32 +1,41 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Form, Input, Button, Skeleton } from 'antd';
+import { Form, Input, Button, Skeleton, Flex, Alert } from 'antd';
 import Paragraph from 'antd/es/typography/Paragraph';
 import Title from 'antd/es/typography/Title';
 import Example from '@/components/Example';
 import CodeBox from '@/components/CodeBox';
-import { useProfile, request } from '@/utils';
+import { useProfile } from '@/utils';
+import { request } from '@/utils/request-client';
 
 const Add: React.FC = () => {
   const profile = useProfile();
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const onFinish = async (values: any) => {
-    await request({
-      method: 'POST',
-      path: '/sites',
-      data: {
-        url: values.url,
-      },
-    });
+    setLoading(true);
+    try {
+      await request({
+        method: 'POST',
+        path: '/sites',
+        data: {
+          url: values.url,
+        },
+      });
+      router.push('/dashboard');
+    } catch (e: any) {
+      setError(e.message);
+    }
 
-    router.push('/dashboard');
+    setLoading(false);
   };
 
   return (
-    <>
-      <Title level={2} style={{ marginBottom: 10 }}>
+    <div style={{ padding: 24 }}>
+      <Title level={3} style={{ marginBottom: 5 }}>
         Step 1. Insert Code
       </Title>
       <Paragraph style={{ marginBottom: 20 }}>
@@ -34,7 +43,7 @@ const Add: React.FC = () => {
         conversations.
       </Paragraph>
       <Example lng="en" theme="light" />
-      <Title level={2} style={{ marginTop: 20, marginBottom: 10 }}>
+      <Title level={3} style={{ marginTop: 20, marginBottom: 5 }}>
         Step 2. Verify Ownership
       </Title>
       <Paragraph style={{ marginBottom: 20 }}>
@@ -46,7 +55,7 @@ const Add: React.FC = () => {
       ) : (
         <Skeleton active title={{ style: { height: 52 } }} paragraph={false} />
       )}
-      <Title level={2} style={{ marginTop: 20, marginBottom: 10 }}>
+      <Title level={3} style={{ marginTop: 20, marginBottom: 5 }}>
         Step 3. Finalize Setup
       </Title>
       <Paragraph style={{ marginBottom: 20 }}>
@@ -65,11 +74,29 @@ const Add: React.FC = () => {
         >
           <Input placeholder="https://example.com" />
         </Form.Item>
-        <Button loading={false} type="primary" htmlType="submit">
-          Verify
-        </Button>
+        {error && (
+          <Alert
+            style={{ marginBottom: 30 }}
+            message={error}
+            closable
+            type="error"
+            showIcon
+          />
+        )}
+        <Flex gap={8}>
+          <Button
+            type="default"
+            onClick={() => router.push('/dashboard')}
+            htmlType="button"
+          >
+            Back
+          </Button>
+          <Button loading={loading} type="primary" htmlType="submit">
+            Verify
+          </Button>
+        </Flex>
       </Form>
-    </>
+    </div>
   );
 };
 

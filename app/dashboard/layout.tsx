@@ -20,6 +20,8 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         style={{
           padding: '20px',
           height: 50,
+          position: 'sticky',
+          top: 0,
           background: colorBgContainer,
         }}
       >
@@ -44,8 +46,8 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         <div
           style={{
             position: 'relative',
-            padding: 24,
-            minHeight: 360,
+            overflow: 'hidden',
+            minHeight: 'calc(100vh - 250px)',
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
           }}
