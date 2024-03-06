@@ -1,5 +1,5 @@
 'use client';
-import { Avatar, Dropdown, Flex } from 'antd';
+import { Avatar, Dropdown, Flex, Skeleton } from 'antd';
 import Text from 'antd/es/typography/Text';
 import { setCookie } from 'cookies-next';
 import { useRouter } from 'next/navigation';
@@ -16,8 +16,8 @@ export default function Profile() {
   };
 
   return (
-    profile && (
-      <div style={{ maxWidth: 200 }}>
+    <div style={{ maxWidth: 200 }}>
+      {profile ? (
         <Dropdown
           trigger={['click']}
           menu={{
@@ -46,7 +46,16 @@ export default function Profile() {
             <Text ellipsis>{profile?.email}</Text>
           </Flex>
         </Dropdown>
-      </div>
-    )
+      ) : (
+        <div style={{ width: 200 }}>
+          <Skeleton
+            active
+            avatar={{ size: 30, shape: 'circle' }}
+            title={{ style: { marginTop: 6 } }}
+            paragraph={false}
+          />
+        </div>
+      )}
+    </div>
   );
 }

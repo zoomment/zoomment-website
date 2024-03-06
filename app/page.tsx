@@ -16,7 +16,7 @@ export default function Home() {
           }}
           level={1}
         >
-          Zoomment <Tag color="purple">Alpha</Tag>
+          Zoomment <Tag color="purple">Beta</Tag>
         </Title>
         <Title
           type="secondary"
