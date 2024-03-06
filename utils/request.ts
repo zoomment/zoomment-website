@@ -19,7 +19,7 @@ export const request = async ({
     },
   };
 
-  if (method !== 'GET' && method !== 'HEAD') {
+  if (!['DELETE', 'GET', 'HEAD'].includes(method)) {
     options.body = JSON.stringify(data);
   }
 
