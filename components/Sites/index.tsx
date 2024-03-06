@@ -1,10 +1,27 @@
 'use client';
-import { Menu, Row, Col, Button, Flex } from 'antd';
+import {
+  Menu,
+  Row,
+  Col,
+  Button,
+  Flex,
+  List,
+  Spin,
+  Avatar,
+  Popconfirm,
+  theme,
+} from 'antd';
+import Title from 'antd/es/typography/Title';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { NumberOutlined, PlusCircleOutlined } from '@ant-design/icons';
+import {
+  NumberOutlined,
+  PlusCircleOutlined,
+  DeleteOutlined,
+} from '@ant-design/icons';
 import { TSite, TComment } from '@/types';
 import { request } from '@/utils/request-client';
+import dayjs from 'dayjs';
 
 type Props = {
   data: TSite[];
@@ -12,8 +29,11 @@ type Props = {
 
 const Sites = (props: Props) => {
   const [selectedSiteId, selectSiteId] = useState<string>(props.data[0]._id);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState<TComment[]>([]);
+  const {
+    token: { colorBgContainer, borderRadiusLG, boxShadowTertiary },
+  } = theme.useToken();
 
   useEffect(() => {
     const getCommentsBySiteId = async () => {
@@ -29,7 +49,7 @@ const Sites = (props: Props) => {
   }, [selectedSiteId]);
 
   return (
-    <Row style={{ height: 'calc(100vh - 250px)' }}>
+    <Row style={{ height: 'calc(100vh - 200px)', overflow: 'hidden' }}>
       <Col xs={6} style={{ height: '100%' }}>
         <Menu
           onSelect={(info) => selectSiteId(info.key)}
@@ -54,27 +74,79 @@ const Sites = (props: Props) => {
           </Link>
         </div>
       </Col>
-      <Col xs={18} style={{ padding: 8, height: '100%' }}>
-        <Flex align="center" justify="center" style={{ height: '100%' }}>
-          {!loading && comments.length > 0 ? (
-            <div>
-              {comments.map((comment) => (
-                <div key={comment._id}>
-                  Page URL: {comment.pageUrl} <br />
-                  Author: {comment.author}
-                  <br />
-                  Gravatar: {comment.gravatar}
-                  <br />
-                  Comment: {comment.body}
-                  <br />
-                  <hr />
-                </div>
-              ))}
+      <Col xs={18} style={{ height: '100%', overflow: 'auto' }}>
+        {!loading && comments.length > 0 && (
+          <div style={{ width: '100%' }}>
+            <div
+              style={{
+                position: 'sticky',
+                top: 0,
+                padding: '12px 15px',
+                height: 50,
+                zIndex: 80,
+                backgroundColor: colorBgContainer,
+                boxShadow: boxShadowTertiary,
+              }}
+            >
+              <Title level={4}>Comments</Title>
             </div>
-          ) : (
+            <List
+              loading={loading}
+              itemLayout="horizontal"
+              style={{ padding: 8 }}
+              dataSource={comments}
+              renderItem={(comment) => (
+                <List.Item
+                  actions={[
+                    <Popconfirm
+                      destroyTooltipOnHide
+                      title="Delete comment"
+                      description="Are you sure to delete this comment?"
+                      okText="Yes"
+                      cancelText="No"
+                    >
+                      <Button
+                        key="list-loadmore-edit"
+                        type="text"
+                        icon={<DeleteOutlined />}
+                      />
+                    </Popconfirm>,
+                  ]}
+                >
+                  <List.Item.Meta
+                    avatar={
+                      <Avatar
+                        src={`https://www.gravatar.com/avatar/${comment.gravatar}?d=monsterid`}
+                      />
+                    }
+                    title={<>{comment.author}</>}
+                    description={
+                      <>
+                        <a
+                          style={{ fontSize: 12 }}
+                          target="_blank"
+                          href={comment.pageUrl}
+                        >
+                          {dayjs(comment.createdAt).format(
+                            'HH:mm - DD MMM YYYY'
+                          )}
+                        </a>
+                        <div>{comment.body}</div>
+                      </>
+                    }
+                  />
+                </List.Item>
+              )}
+            />
+          </div>
+        )}
+        {!loading && comments.length === 0 && (
+          <Flex align="center" justify="center" style={{ height: '100%' }}>
             <div>No comments yet</div>
-          )}
-          {loading && 'Loading...'}
+          </Flex>
+        )}
+        <Flex align="center" justify="center" style={{ height: '100%' }}>
+          {loading && <Spin />}
         </Flex>
       </Col>
     </Row>
