@@ -19,6 +19,7 @@ export default function Profile() {
     profile && (
       <div style={{ maxWidth: 200 }}>
         <Dropdown
+          trigger={['click']}
           menu={{
             items: [
               {

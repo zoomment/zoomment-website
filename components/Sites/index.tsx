@@ -10,6 +10,7 @@ import {
   Avatar,
   Popconfirm,
   Empty,
+  Dropdown,
   theme,
 } from 'antd';
 import Title from 'antd/es/typography/Title';
@@ -19,6 +20,7 @@ import {
   NumberOutlined,
   PlusCircleOutlined,
   DeleteOutlined,
+  MoreOutlined,
 } from '@ant-design/icons';
 import { TSite, TComment } from '@/types';
 import { request } from '@/utils/request-client';
@@ -33,7 +35,7 @@ const Sites = (props: Props) => {
   const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState<TComment[]>([]);
   const {
-    token: { colorBgContainer, borderRadiusLG, boxShadowTertiary },
+    token: { colorBgContainer, boxShadowTertiary },
   } = theme.useToken();
 
   useEffect(() => {
@@ -48,6 +50,13 @@ const Sites = (props: Props) => {
     };
     getCommentsBySiteId();
   }, [selectedSiteId]);
+
+  const onDeleteSite = async (comment: TComment) => {
+    await request({
+      method: 'DELETE',
+      path: `/comments/${comment._id}`,
+    });
+  };
 
   return (
     <Row style={{ height: 'calc(100vh - 150px)', overflow: 'hidden' }}>
@@ -76,21 +85,42 @@ const Sites = (props: Props) => {
         </div>
       </Col>
       <Col xs={18} style={{ height: '100%', overflow: 'auto' }}>
+        <Flex
+          justify="space-between"
+          align="center"
+          style={{
+            position: 'sticky',
+            top: 0,
+            padding: '0 15px',
+            height: 50,
+            zIndex: 80,
+            backgroundColor: colorBgContainer,
+            boxShadow: boxShadowTertiary,
+          }}
+        >
+          <Title level={4} style={{ margin: 0 }}>
+            Comments
+          </Title>
+          <Dropdown
+            trigger={['click']}
+            placement="bottomRight"
+            menu={{
+              items: [
+                {
+                  key: '4',
+                  danger: true,
+                  onClick: () => null,
+                  label: 'Delete Site',
+                },
+              ],
+            }}
+          >
+            <Button type="text" icon={<MoreOutlined />} />
+          </Dropdown>
+        </Flex>
+
         {!loading && comments.length > 0 && (
           <div style={{ width: '100%' }}>
-            <div
-              style={{
-                position: 'sticky',
-                top: 0,
-                padding: '12px 15px',
-                height: 50,
-                zIndex: 80,
-                backgroundColor: colorBgContainer,
-                boxShadow: boxShadowTertiary,
-              }}
-            >
-              <Title level={4}>Comments</Title>
-            </div>
             <List
               loading={loading}
               itemLayout="horizontal"
@@ -107,6 +137,7 @@ const Sites = (props: Props) => {
                       description="Are you sure to delete this comment?"
                       okText="Yes"
                       cancelText="No"
+                      onConfirm={() => onDeleteSite(comment)}
                     >
                       <Button type="text" icon={<DeleteOutlined />} />
                     </Popconfirm>,
