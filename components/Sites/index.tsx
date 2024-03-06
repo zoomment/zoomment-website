@@ -9,6 +9,7 @@ import {
   Spin,
   Avatar,
   Popconfirm,
+  Empty,
   theme,
 } from 'antd';
 import Title from 'antd/es/typography/Title';
@@ -97,19 +98,17 @@ const Sites = (props: Props) => {
               dataSource={comments}
               renderItem={(comment) => (
                 <List.Item
+                  key={comment._id}
                   actions={[
                     <Popconfirm
+                      key={`${comment._id}-delete`}
                       destroyTooltipOnHide
                       title="Delete comment"
                       description="Are you sure to delete this comment?"
                       okText="Yes"
                       cancelText="No"
                     >
-                      <Button
-                        key="list-loadmore-edit"
-                        type="text"
-                        icon={<DeleteOutlined />}
-                      />
+                      <Button type="text" icon={<DeleteOutlined />} />
                     </Popconfirm>,
                   ]}
                 >
@@ -142,7 +141,10 @@ const Sites = (props: Props) => {
         )}
         {!loading && comments.length === 0 && (
           <Flex align="center" justify="center" style={{ height: '100%' }}>
-            <div>No comments yet</div>
+            <Empty
+              image={Empty.PRESENTED_IMAGE_SIMPLE}
+              description="No comments yet"
+            />
           </Flex>
         )}
         <Flex align="center" justify="center" style={{ height: '100%' }}>
