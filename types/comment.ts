@@ -4,6 +4,7 @@ export type TComment = {
   createdAt: Date;
   userId: string;
   pageUrl: string;
+  secret: string;
   pageId: string;
   author: string;
   gravatar: string;

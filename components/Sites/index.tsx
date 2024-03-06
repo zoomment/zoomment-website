@@ -54,7 +54,7 @@ const Sites = (props: Props) => {
   const onDeleteSite = async (comment: TComment) => {
     await request({
       method: 'DELETE',
-      path: `/comments/${comment._id}`,
+      path: `/comments/${comment._id}?secret=${comment.secret}`,
     });
   };
 
