@@ -35,7 +35,7 @@ const Add: React.FC = () => {
 
   return (
     <div style={{ padding: 24 }}>
-      <Title level={3} style={{ marginBottom: 5 }}>
+      <Title level={4} style={{ marginBottom: 5 }}>
         Step 1. Insert Code
       </Title>
       <Paragraph style={{ marginBottom: 20 }}>
@@ -43,7 +43,7 @@ const Add: React.FC = () => {
         conversations.
       </Paragraph>
       <Example lng="en" theme="light" />
-      <Title level={3} style={{ marginTop: 20, marginBottom: 5 }}>
+      <Title level={4} style={{ marginTop: 20, marginBottom: 5 }}>
         Step 2. Verify Ownership
       </Title>
       <Paragraph style={{ marginBottom: 20 }}>
@@ -55,13 +55,12 @@ const Add: React.FC = () => {
       ) : (
         <Skeleton active title={{ style: { height: 52 } }} paragraph={false} />
       )}
-      <Title level={3} style={{ marginTop: 20, marginBottom: 5 }}>
+      <Title level={4} style={{ marginTop: 20, marginBottom: 5 }}>
         Step 3. Finalize Setup
       </Title>
       <Paragraph style={{ marginBottom: 20 }}>
         Enter your website URL and click &quot;Verify&quot; to complete the
-        setup. Confirm ownership and unlock the full potential of managing
-        comments on your site.
+        setup.
       </Paragraph>
       <Form size="large" onFinish={onFinish}>
         <Form.Item

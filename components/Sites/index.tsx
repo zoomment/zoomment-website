@@ -50,7 +50,7 @@ const Sites = (props: Props) => {
   }, [selectedSiteId]);
 
   return (
-    <Row style={{ height: 'calc(100vh - 200px)', overflow: 'hidden' }}>
+    <Row style={{ height: 'calc(100vh - 150px)', overflow: 'hidden' }}>
       <Col xs={6} style={{ height: '100%' }}>
         <Menu
           onSelect={(info) => selectSiteId(info.key)}

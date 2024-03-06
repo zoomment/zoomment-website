@@ -33,7 +33,7 @@ export default function Home() {
       </div>
       <Example lng="en" theme="light" />
       <div
-        style={{ marginTop: 20 }}
+        style={{ marginTop: 30 }}
         id="zoomment"
         className="w-full"
         data-theme="light"
