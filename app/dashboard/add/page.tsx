@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+
 import { useRouter } from 'next/navigation';
 import { Form, Input, Button, Skeleton, Flex, Alert } from 'antd';
 import Paragraph from 'antd/es/typography/Paragraph';
@@ -10,7 +11,7 @@ import { useProfile } from '@/utils';
 import { request } from '@/utils/request-client';
 
 const Add: React.FC = () => {
-  const profile = useProfile();
+  const { profile } = useProfile();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');

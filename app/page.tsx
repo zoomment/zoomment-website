@@ -1,9 +1,20 @@
+'use client';
+import { useEffect } from 'react';
 import Example from '@/components/Example';
-import Script from 'next/script';
 import Title from 'antd/es/typography/Title';
 import { Tag } from 'antd';
 
 export default function Home() {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.zoomment.com/zoomment.min.js';
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <main className="max-w-screen-sm py-12 mx-auto">
       <div className="mb-5 flex flex-col justify-center items-center">
@@ -40,7 +51,6 @@ export default function Home() {
         data-language="en"
         data-emotions="❤️,😀,🪄,🥸,💡,🤔,💩,😢"
       ></div>
-      <Script src="https://cdn.zoomment.com/zoomment.min.js"></Script>
     </main>
   );
 }

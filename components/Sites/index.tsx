@@ -43,7 +43,7 @@ const Sites = (props: Props) => {
 
   return (
     <Row style={{ height: 'calc(100vh - 150px)', overflow: 'hidden' }}>
-      <Col xs={6} style={{ height: '100%' }}>
+      <Col xs={10} md={6} style={{ height: '100%' }}>
         <Menu
           onSelect={(info) => selectSiteId(info.key)}
           style={{ width: '100%', height: '100%', paddingBottom: 60 }}
@@ -67,7 +67,7 @@ const Sites = (props: Props) => {
           </Link>
         </div>
       </Col>
-      <Col xs={18} style={{ height: '100%', overflow: 'auto' }}>
+      <Col xs={14} md={18} style={{ height: '100%', overflow: 'auto' }}>
         <Header />
         {!loading && comments.length > 0 && (
           <div style={{ width: '100%' }}>
