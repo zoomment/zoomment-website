@@ -17,7 +17,7 @@ export default function Profile() {
 
   const onLogout = () => {
     setCookie('token', '');
-    router.refresh();
+    router.push('/');
   };
 
   const username = profile && profile.email.replace(/@.*/g, '');

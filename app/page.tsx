@@ -16,7 +16,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="max-w-screen-sm py-12 mx-auto">
+    <main className="max-w-screen-sm py-12 px-4 mx-auto">
       <div className="mb-5 flex flex-col justify-center items-center">
         <Title
           style={{
@@ -50,7 +50,9 @@ export default function Home() {
         data-theme="light"
         data-language="en"
         data-emotions="❤️,😀,🪄,🥸,💡,🤔,💩,😢"
-      ></div>
+      >
+        Loading...
+      </div>
     </main>
   );
 }
