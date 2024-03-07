@@ -1,7 +1,7 @@
 'use client';
 import { Avatar, Dropdown, Flex, Skeleton, Button } from 'antd';
 import Text from 'antd/es/typography/Text';
-import { setCookie } from 'cookies-next';
+import { deleteCookie } from 'cookies-next';
 import { useRouter } from 'next/navigation';
 import {
   UserOutlined,
@@ -16,7 +16,7 @@ export default function Profile() {
   const router = useRouter();
 
   const onLogout = () => {
-    setCookie('token', '');
+    deleteCookie('token');
     router.push('/');
   };
 
