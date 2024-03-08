@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getCookie } from 'cookies-next';
+import { getCookie, deleteCookie } from 'cookies-next';
 import { jwtDecode, JwtPayload } from 'jwt-decode';
 import { TUser } from '@/types';
 
@@ -7,6 +7,11 @@ export const useProfile = () => {
   const [user, setUser] = useState<TUser | null>(null);
   const [loading, setLoading] = useState(true);
   const token = getCookie('token');
+
+  const logout = () => {
+    deleteCookie('token');
+    setUser(null);
+  };
 
   useEffect(() => {
     setLoading(false);
@@ -17,6 +22,7 @@ export const useProfile = () => {
 
   return {
     profile: user,
+    logout,
     loading,
     token,
   };

@@ -1,11 +1,12 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 import Example from '@/components/Example';
 import Title from 'antd/es/typography/Title';
-import { Tag } from 'antd';
+import { Tag, Skeleton, Flex } from 'antd';
+import Script from 'next/script';
 
 export default function Home() {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://cdn.zoomment.com/zoomment.min.js';
     script.async = true;
@@ -13,7 +14,7 @@ export default function Home() {
     return () => {
       document.body.removeChild(script);
     };
-  }, []);
+  });
 
   return (
     <main className="max-w-screen-sm py-12 px-4 mx-auto">
@@ -51,7 +52,25 @@ export default function Home() {
         data-language="en"
         data-emotions="❤️,😀,🪄,🥸,💡,🤔,💩,😢"
       >
-        Loading...
+        <div>
+          <Flex
+            gap={8}
+            align="center"
+            justify="center"
+            style={{ paddingTop: 10 }}
+          >
+            <Skeleton.Button active />
+            <Skeleton.Button active />
+            <Skeleton.Button active />
+            <Skeleton.Button active />
+            <Skeleton.Button active />
+          </Flex>
+          <Skeleton.Input
+            block
+            style={{ height: 100, marginTop: 25, marginBottom: 25 }}
+            active
+          />
+        </div>
       </div>
     </main>
   );

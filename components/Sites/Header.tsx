@@ -1,14 +1,35 @@
 'use client';
+import { useState, useCallback } from 'react';
 import { Button, Flex, Dropdown, theme } from 'antd';
 import Title from 'antd/es/typography/Title';
-
 import { MoreOutlined } from '@ant-design/icons';
 import { TSite } from '@/types';
+import { request } from '@/utils/request-client';
 
-export const Header = () => {
+type Props = {
+  site: TSite;
+  onDelete: (siteId: string) => void;
+};
+
+export const Header = ({ site, onDelete }: Props) => {
+  const [loading, setLoading] = useState(false);
   const {
     token: { colorBgContainer, boxShadowTertiary },
   } = theme.useToken();
+
+  const siteId = site._id;
+
+  const onDeleteSite = useCallback(async () => {
+    setLoading(true);
+
+    await request({
+      method: 'DELETE',
+      path: `/sites/${siteId}`,
+    });
+
+    onDelete(siteId);
+    setLoading(false);
+  }, [request, siteId, onDelete]);
 
   return (
     <Flex
@@ -33,15 +54,20 @@ export const Header = () => {
         menu={{
           items: [
             {
+              key: '1',
+              onClick: () => window.open(`/rss/${site.domain}`, '_blank'),
+              label: 'Get RSS feed',
+            },
+            {
               key: '4',
               danger: true,
-              onClick: () => null,
-              label: 'Delete Site',
+              onClick: () => onDeleteSite(),
+              label: 'Delete site',
             },
           ],
         }}
       >
-        <Button type="text" icon={<MoreOutlined />} />
+        <Button loading={loading} type="text" icon={<MoreOutlined />} />
       </Dropdown>
     </Flex>
   );

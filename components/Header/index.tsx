@@ -31,7 +31,13 @@ const Header = () => {
       >
         <div>
           <Link href="/">
-            <Image alt="zoomment.com" width={35} height={30} src="/logo.svg" />
+            <Image
+              priority
+              alt="zoomment.com"
+              width={35}
+              height={30}
+              src="/logo.svg"
+            />
           </Link>
         </div>
         <div>

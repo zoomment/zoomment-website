@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import React from 'react';
-import AddFirstSite from '@/components/AddFirstSite';
 import { request } from '@/utils/request-server';
 import Sites from '@/components/Sites';
 import { TSite } from '@/types';
@@ -17,7 +16,7 @@ const Dashboard: React.FC = async () => {
     path: '/sites',
   });
 
-  return <>{sites.length > 0 ? <Sites data={sites} /> : <AddFirstSite />}</>;
+  return <Sites sites={sites} />;
 };
 
 export default Dashboard;

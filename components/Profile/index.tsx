@@ -1,25 +1,18 @@
 'use client';
 import { Avatar, Dropdown, Flex, Skeleton, Button } from 'antd';
 import Text from 'antd/es/typography/Text';
-import { deleteCookie } from 'cookies-next';
 import { useRouter } from 'next/navigation';
 import {
   UserOutlined,
   CaretDownOutlined,
-  PullRequestOutlined,
+  LoginOutlined,
   GithubOutlined,
 } from '@ant-design/icons';
 import { useProfile } from '@/utils';
 
 export default function Profile() {
-  const { profile, loading } = useProfile();
   const router = useRouter();
-
-  const onLogout = () => {
-    deleteCookie('token');
-    router.push('/');
-  };
-
+  const { profile, loading, logout } = useProfile();
   const username = profile && profile.email.replace(/@.*/g, '');
 
   return (
@@ -48,7 +41,10 @@ export default function Profile() {
               {
                 key: '4',
                 danger: true,
-                onClick: onLogout,
+                onClick: () => {
+                  logout();
+                  router.push('/');
+                },
                 label: 'Logout',
               },
             ],
@@ -77,7 +73,7 @@ export default function Profile() {
           </Button>
           <Button
             onClick={() => router.push('/auth')}
-            icon={<PullRequestOutlined />}
+            icon={<LoginOutlined />}
             type="primary"
           >
             Login

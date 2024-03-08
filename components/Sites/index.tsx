@@ -1,4 +1,5 @@
 'use client';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import {
   Menu,
   Row,
@@ -10,23 +11,48 @@ import {
   Empty,
   Divider,
 } from 'antd';
-
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { NumberOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import { TSite, TComment } from '@/types';
 import { request } from '@/utils/request-client';
+import AddFirstSite from '@/components/AddFirstSite';
+
 import { Comment } from './Comment';
 import { Header } from './Header';
 
 type Props = {
-  data: TSite[];
+  sites: TSite[];
 };
 
 const Sites = (props: Props) => {
-  const [selectedSiteId, selectSiteId] = useState<string>(props.data[0]._id);
+  const [selectedSiteId, selectSiteId] = useState<string>(props.sites[0]._id);
   const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState<TComment[]>([]);
+  const [sites, setSites] = useState<TSite[]>(props.sites);
+
+  const selectedSite = useMemo(
+    () => sites.find((site) => site._id === selectedSiteId),
+    [sites, selectedSiteId]
+  );
+
+  const onDeleteComment = useCallback(
+    (commentId: string) => {
+      setComments(comments.filter((item) => item._id !== commentId));
+    },
+    [comments]
+  );
+
+  const onDeleteSite = useCallback(
+    (siteId: string) => {
+      const filtered = sites.filter((item) => item._id !== siteId);
+      setSites(filtered);
+
+      if (filtered.length > 0) {
+        selectSiteId(filtered[0]._id);
+      }
+    },
+    [sites]
+  );
 
   useEffect(() => {
     const getCommentsBySiteId = async () => {
@@ -41,14 +67,20 @@ const Sites = (props: Props) => {
     getCommentsBySiteId();
   }, [selectedSiteId]);
 
+  if (!selectedSite) return null;
+
+  if (sites.length === 0) {
+    return <AddFirstSite />;
+  }
+
   return (
     <Row style={{ height: 'calc(100vh - 150px)', overflow: 'hidden' }}>
       <Col xs={10} md={6} style={{ height: '100%' }}>
         <Menu
           onSelect={(info) => selectSiteId(info.key)}
           style={{ width: '100%', height: '100%', paddingBottom: 60 }}
-          defaultSelectedKeys={[selectedSiteId]}
-          items={props.data.map((item) => ({
+          selectedKeys={[selectedSiteId]}
+          items={sites.map((item) => ({
             icon: <NumberOutlined />,
             label: item.domain,
             key: item._id,
@@ -68,7 +100,7 @@ const Sites = (props: Props) => {
         </div>
       </Col>
       <Col xs={14} md={18} style={{ height: '100%', overflow: 'auto' }}>
-        <Header />
+        <Header site={selectedSite} onDelete={onDeleteSite} />
         {!loading && comments.length > 0 && (
           <div style={{ width: '100%' }}>
             <List
@@ -77,7 +109,11 @@ const Sites = (props: Props) => {
               style={{ padding: 8 }}
               dataSource={comments}
               renderItem={(comment) => (
-                <Comment comment={comment} key={comment._id} />
+                <Comment
+                  comment={comment}
+                  key={comment._id}
+                  onDelete={onDeleteComment}
+                />
               )}
             />
           </div>
@@ -96,21 +132,21 @@ const Sites = (props: Props) => {
               active
               avatar={{ size: 30 }}
               title={{ style: { marginTop: 5 } }}
-              paragraph={{ style: { marginTop: 15 } }}
+              paragraph={{ style: { marginTop: 15 }, rows: 1 }}
             />
             <Divider />
             <Skeleton
               active
               avatar={{ size: 30 }}
               title={{ style: { marginTop: 5 } }}
-              paragraph={{ style: { marginTop: 15 } }}
+              paragraph={{ style: { marginTop: 15 }, rows: 1 }}
             />
             <Divider />
             <Skeleton
               active
               avatar={{ size: 30 }}
               title={{ style: { marginTop: 5 } }}
-              paragraph={{ style: { marginTop: 15 } }}
+              paragraph={{ style: { marginTop: 15 }, rows: 1 }}
             />
           </div>
         )}
