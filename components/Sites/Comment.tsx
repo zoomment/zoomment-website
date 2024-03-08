@@ -26,7 +26,7 @@ export const Comment = ({ comment, onDelete }: Props) => {
       onDelete(comment._id);
       setLoading(false);
     },
-    [request]
+    [onDelete]
   );
 
   return (

@@ -29,7 +29,7 @@ export const Header = ({ site, onDelete }: Props) => {
 
     onDelete(siteId);
     setLoading(false);
-  }, [request, siteId, onDelete]);
+  }, [siteId, onDelete]);
 
   return (
     <Flex
