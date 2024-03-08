@@ -34,6 +34,7 @@ export const Comment = ({ comment, onDelete }: Props) => {
       key={comment._id}
       actions={[
         <Dropdown
+          key="comment-menu"
           destroyPopupOnHide
           trigger={['click']}
           placement="bottomRight"
