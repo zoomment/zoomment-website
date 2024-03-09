@@ -36,7 +36,18 @@ export default function Benefits() {
       </Paragraph>
       <Row gutter={[28, 28]}>
         <Col md={12}>
-          <Benefit title={'🧰 Dashboard for Website Admins'}>
+          <Benefit title="🗃️ Open Source">
+            Zoomment embraces the power of open source, inviting developers and
+            tech enthusiasts to contribute to our platform. Being open source
+            means anyone can inspect, modify, and enhance our code, leading to a
+            more secure, efficient, and innovative commenting system. By
+            supporting Zoomment, you're joining a movement that values
+            transparency, collaboration, and the continuous pursuit of
+            excellence.
+          </Benefit>
+        </Col>
+        <Col md={12}>
+          <Benefit title="🧰 Dashboard for Website Admins">
             Manage your comments with ease using Zoomment&apos;s comprehensive
             dashboard. Tailored for website administrators, this tool allows you
             to monitor, approve, and respond to comments efficiently, ensuring
@@ -44,7 +55,7 @@ export default function Benefits() {
           </Benefit>
         </Col>
         <Col md={12}>
-          <Benefit title="📬 Notification About New Comments">
+          <Benefit title="📬 Notifications">
             Stay updated with email notifications whenever a new comment is
             posted. This feature ensures you never miss out on user engagement,
             allowing you to respond promptly and keep the conversation flowing.
@@ -68,7 +79,7 @@ export default function Benefits() {
           </Benefit>
         </Col>
         <Col md={12}>
-          <Benefit title="🤟 Reactions">
+          <Benefit title="👍 Reactions">
             Enhance the interactivity of your comments section with emoji
             reactions. Zoomment lets you customize the set of emoticons,
             providing a fun and expressive way for users to engage with your
@@ -76,7 +87,7 @@ export default function Benefits() {
           </Benefit>
         </Col>
         <Col md={12}>
-          <Benefit title="🥋 No Technical Knowledge Required">
+          <Benefit title="🕹️ No Technical Knowledge Required">
             Installing and using Zoomment is a breeze. Our platform is designed
             to be user-friendly, requiring no technical knowledge. With a simple
             setup process, you can have Zoomment running on your site in no
