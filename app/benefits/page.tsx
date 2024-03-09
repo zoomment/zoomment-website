@@ -25,8 +25,8 @@ export default function Benefits() {
         Benefits
       </Title>
       <Paragraph style={{ marginBottom: 30, fontSize: '16px', maxWidth: 600 }}>
-        Discover Zoomment's key benefits: Easy-to-manage comments, customizable
-        features, and enhanced engagement with no technical hassle.
+        Discover Zoomment&apos;s key benefits: Easy-to-manage comments,
+        customizable features, and enhanced engagement with no technical hassle.
       </Paragraph>
       <Row gutter={[28, 28]}>
         <Col md={12}>
