@@ -1,6 +1,6 @@
 import Title from 'antd/es/typography/Title';
 import { Row, Col, Card } from 'antd';
-import Paragraph from 'antd/es/typography/paragraph';
+import Paragraph from 'antd/es/typography/Paragraph';
 
 const Benefit = ({ title, children }: { title: string; children: string }) => {
   return (
