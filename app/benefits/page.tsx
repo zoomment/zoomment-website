@@ -31,7 +31,7 @@ export default function Benefits() {
       <Row gutter={[28, 28]}>
         <Col md={12}>
           <Benefit title={'🧰 Dashboard for Website Admins'}>
-            Manage your comments with ease using Zoomment's comprehensive
+            Manage your comments with ease using Zoomment&apos;s comprehensive
             dashboard. Tailored for website administrators, this tool allows you
             to monitor, approve, and respond to comments efficiently, ensuring
             your community thrives in a moderated environment.
@@ -55,9 +55,10 @@ export default function Benefits() {
         <Col md={12}>
           <Benefit title="⚙️ Customizable">
             With Zoomment, you can customize the appearance and functionality of
-            your comments section to match your website's design and cater to
-            your audience's preferences. Choose from various themes, set your
-            preferred language, and more, to create a seamless user experience.
+            your comments section to match your website&apos;s design and cater
+            to your audience&apos;s preferences. Choose from various themes, set
+            your preferred language, and more, to create a seamless user
+            experience.
           </Benefit>
         </Col>
         <Col md={12}>
@@ -73,13 +74,13 @@ export default function Benefits() {
             Installing and using Zoomment is a breeze. Our platform is designed
             to be user-friendly, requiring no technical knowledge. With a simple
             setup process, you can have Zoomment running on your site in no
-            time, transforming your website's engagement capabilities without
-            the hassle.
+            time, transforming your website&apos;s engagement capabilities
+            without the hassle.
           </Benefit>
         </Col>
       </Row>
       <Paragraph style={{ marginTop: 30 }}>
-        Zoomment is not just a commenting platform; it's a comprehensive
+        Zoomment is not just a commenting platform; it&apos;s a comprehensive
         solution designed to elevate engagement and streamline management on
         your website. With its array of customizable features and user-friendly
         design, Zoomment is the perfect tool for website administrators looking
