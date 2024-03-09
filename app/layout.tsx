@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, Layout } from 'antd';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import { Roboto } from 'next/font/google';
 import 'normalize.css';
 import './globals.css';
@@ -31,7 +32,8 @@ export default function RootLayout({
         <AntdRegistry>
           <ConfigProvider>
             <Header />
-            {children}
+            <Layout style={{ minHeight: '100vh' }}>{children}</Layout>
+            <Footer />
           </ConfigProvider>
         </AntdRegistry>
       </body>

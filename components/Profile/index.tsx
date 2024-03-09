@@ -19,8 +19,7 @@ export default function Profile() {
     <div style={{ maxWidth: 300 }}>
       {loading && (
         <Flex style={{ width: 200 }} justify="end" gap={8}>
-          <Skeleton.Button active />
-          <Skeleton.Button active />
+          <Skeleton.Button active style={{ width: 100 }} />
         </Flex>
       )}
       {!loading && profile && (
@@ -64,13 +63,6 @@ export default function Profile() {
       )}
       {!loading && !profile && (
         <Flex gap={8}>
-          <Button
-            href="https://github.com/zoomment"
-            target="_blank"
-            icon={<GithubOutlined />}
-          >
-            GitHub
-          </Button>
           <Button
             onClick={() => router.push('/auth')}
             icon={<LoginOutlined />}

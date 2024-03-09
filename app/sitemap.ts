@@ -17,6 +17,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    {
+      url: 'https://zoomment.com/benefits',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
     ...(posts.map((post) => ({
       url: `https://zoomment.com/blog/${post.slug}`,
       lastModified: new Date(),

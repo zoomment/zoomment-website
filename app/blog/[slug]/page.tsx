@@ -47,7 +47,7 @@ export default async function Post({ params }: Params) {
   const content = await markdownToHtml(post.content || '');
 
   return (
-    <div>
+    <>
       <Typography>
         {/* {post.preview} */}
         <Title level={1}>{post.title}</Title>
@@ -60,6 +60,6 @@ export default async function Post({ params }: Params) {
         </Paragraph>
       </Typography>
       <Widget />
-    </div>
+    </>
   );
 }
