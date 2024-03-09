@@ -18,7 +18,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         width: '100%',
       }}
     >
-      <div style={{ padding: '0 20px' }}>
+      <div style={{ padding: '0 20px', width: '100%' }}>
         <Breadcrumb
           items={[
             {
@@ -30,6 +30,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         ></Breadcrumb>
         <div
           style={{
+            width: '100%',
             position: 'relative',
             overflow: 'hidden',
             minHeight: 'calc(100vh - 250px)',

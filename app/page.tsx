@@ -23,6 +23,7 @@ export default function Home() {
   return (
     <main
       style={{
+        width: '100%',
         maxWidth: 600,
         margin: '0 auto',
         padding: '50px 4px',
