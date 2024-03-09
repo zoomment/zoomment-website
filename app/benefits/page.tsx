@@ -11,6 +11,12 @@ const Benefit = ({ title, children }: { title: string; children: string }) => {
   );
 };
 
+export const metadata = {
+  title: 'Zoomment | Benefits',
+  description:
+    'Unlock the full potential of your website with Zoomment. Experience advanced features like customizable dashboards, real-time notifications, RSS feeds, and more. Elevate user interaction effortlessly.',
+};
+
 export default function Benefits() {
   return (
     <main

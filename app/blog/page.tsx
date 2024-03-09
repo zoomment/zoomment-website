@@ -10,8 +10,7 @@ import markdownToHtml from '@/utils/markdownToHtml';
 import dayjs from 'dayjs';
 
 export const metadata = {
-  title:
-    'Zoomment: Elevate Your Website with Our Interactive Commenting Platform',
+  title: 'Zoomment | Blog',
   description:
     "Discover Zoomment, the ultimate commenting solution designed to boost engagement and foster community on your website. Explore features, integration tips, and success stories on our blog. Transform your site's interaction today.",
 };

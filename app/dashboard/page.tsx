@@ -5,7 +5,7 @@ import Sites from '@/components/Sites';
 import { TSite } from '@/types';
 
 export const metadata: Metadata = {
-  title: 'Zoomment.com | Dashboard',
+  title: 'Zoomment | Dashboard',
   description:
     'Enhance engagement on your Static Site Generated (SSG) website effortlessly with Zoomment, an open-source commenting widget. Easily embed Zoomment to receive and manage comments, fostering community interaction seamlessly.',
 };
