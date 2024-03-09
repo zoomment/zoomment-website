@@ -31,6 +31,12 @@ const Footer = () => {
                 Zoomment
               </Title>
               <Link href="/benefits">Benefits</Link>
+              <Link
+                href="https://patreon.com/zoomment?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
+                target="_blank"
+              >
+                Patreon
+              </Link>
             </Flex>
           </Col>
           <Col xs={24} md={8}>
