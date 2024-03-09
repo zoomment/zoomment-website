@@ -2,7 +2,7 @@
 import { useLayoutEffect } from 'react';
 import Example from '@/components/Example';
 import Title from 'antd/es/typography/Title';
-import { Tag } from 'antd';
+import { Tag, Flex } from 'antd';
 import { Widget } from '@/components/Widget';
 
 export default function Home() {
@@ -17,13 +17,14 @@ export default function Home() {
   });
 
   return (
-    <main className="max-w-screen-sm py-12 px-4 mx-auto">
-      <div className="mb-5 flex flex-col justify-center items-center">
+    <main style={{ maxWidth: 600, margin: '0 auto', padding: '50px 4px' }}>
+      <Flex vertical align="center" justify="center">
         <Title
           style={{
             alignItems: 'center',
             display: 'flex',
             gap: '8px',
+            paddingLeft: 50,
             margin: 0,
           }}
           level={1}
@@ -37,12 +38,12 @@ export default function Home() {
             alignItems: 'center',
             display: 'flex',
             gap: '8px',
-            margin: '10px 5px',
+            margin: '10px 5px 15px 5px',
           }}
         >
           Add Comments to Your Website
         </Title>
-      </div>
+      </Flex>
       <Example lng="en" theme="light" />
       <Widget />
     </main>

@@ -3,7 +3,7 @@ import React from 'react';
 import { Breadcrumb, Layout, theme } from 'antd';
 import Link from 'next/link';
 
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const {
@@ -42,7 +42,6 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           </div>
         </div>
       </Content>
-      <Footer style={{ textAlign: 'center' }}></Footer>
     </Layout>
   );
 };

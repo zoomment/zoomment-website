@@ -15,9 +15,8 @@ export const Widget = () => {
 
   return (
     <div
-      style={{ marginTop: 30 }}
+      style={{ marginTop: 40, width: '100%' }}
       id="zoomment"
-      className="w-full"
       data-theme="light"
       data-language="en"
       data-emotions="❤️,😀,🪄,🥸,💡,🤔,💩,😢"

@@ -52,7 +52,7 @@ export default function Profile() {
         >
           <Flex gap={8} style={{ cursor: 'pointer' }} align="center">
             <Avatar
-              className="flex-shrink-0"
+              style={{ flexShrink: 0 }}
               size={28}
               icon={<UserOutlined />}
               src={`https://www.gravatar.com/avatar/${profile?.gravatar}?d=monsterid`}

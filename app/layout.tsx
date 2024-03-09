@@ -1,7 +1,15 @@
 import type { Metadata } from 'next';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { ConfigProvider } from 'antd';
 import Header from '@/components/Header';
+import { Roboto } from 'next/font/google';
+import 'normalize.css';
 import './globals.css';
+
+const roboto = Roboto({
+  weight: ['400', '500'],
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   title: 'Zoomment: Empower Your Website with Open Source Commenting Widget',
@@ -19,10 +27,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-mode="light">
-      <body>
+      <body className={roboto.className}>
         <AntdRegistry>
-          <Header />
-          {children}
+          <ConfigProvider>
+            <Header />
+            {children}
+          </ConfigProvider>
         </AntdRegistry>
       </body>
     </html>

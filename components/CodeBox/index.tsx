@@ -1,12 +1,20 @@
 import { ReactNode } from 'react';
+import { Typography } from 'antd';
 
 export default function CodeBox({ children }: { children: ReactNode }) {
   return (
-    <pre
-      style={{ fontSize: 13 }}
-      className="overflow-auto text-left items-center bg-gray-800 text-white rounded-md px-4 py-4 w-full"
-    >
-      {children}
-    </pre>
+    <Typography>
+      <pre
+        style={{
+          background: '#1f2937',
+          color: '#fff',
+          padding: '12px 16px',
+          fontSize: 13,
+          borderRadius: 6,
+        }}
+      >
+        {children}
+      </pre>
+    </Typography>
   );
 }
