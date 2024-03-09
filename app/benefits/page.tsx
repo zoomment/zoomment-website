@@ -41,7 +41,7 @@ export default function Benefits() {
             tech enthusiasts to contribute to our platform. Being open source
             means anyone can inspect, modify, and enhance our code, leading to a
             more secure, efficient, and innovative commenting system. By
-            supporting Zoomment, you're joining a movement that values
+            supporting Zoomment, you&apos;re joining a movement that values
             transparency, collaboration, and the continuous pursuit of
             excellence.
           </Benefit>
