@@ -21,13 +21,11 @@ export function generateMetadata({ params }: Params): Metadata {
     return notFound();
   }
 
-  const title = `${post.title} | Zoomment.com`;
+  const title = `${post.title} | Zoomment Blog`;
 
   return {
-    openGraph: {
-      title,
-      images: [post.ogImage.url],
-    },
+    title,
+    description: post.excerpt,
   };
 }
 

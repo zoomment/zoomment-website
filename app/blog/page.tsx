@@ -8,6 +8,13 @@ import { CalendarOutlined } from '@ant-design/icons';
 import markdownToHtml from '@/utils/markdownToHtml';
 import dayjs from 'dayjs';
 
+export const metadata = {
+  title:
+    'Zoomment: Elevate Your Website with Our Interactive Commenting Platform',
+  description:
+    "Discover Zoomment, the ultimate commenting solution designed to boost engagement and foster community on your website. Explore features, integration tips, and success stories on our blog. Transform your site's interaction today.",
+};
+
 export default async function Blog() {
   const posts = getAllPosts();
 
@@ -19,7 +26,6 @@ export default async function Blog() {
           <Link as={`/blog/${post.slug}`} href="/blog/[slug]">
             <Title level={4}>{post.title}</Title>
           </Link>
-
           {/* {post.coverImage} */}
           <Paragraph>
             <CalendarOutlined /> {dayjs(post.date).format('DD MMM YYYY')}
