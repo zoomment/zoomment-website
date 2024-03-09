@@ -14,7 +14,7 @@ export default async function Blog() {
   return (
     <div>
       {posts.map((post) => (
-        <Typography>
+        <Typography key={post.slug}>
           {/* {post.preview} */}
           <Link as={`/blog/${post.slug}`} href="/blog/[slug]">
             <Title level={4}>{post.title}</Title>
