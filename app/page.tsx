@@ -1,9 +1,9 @@
 'use client';
-import { useEffect, useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import Example from '@/components/Example';
 import Title from 'antd/es/typography/Title';
-import { Tag, Skeleton, Flex } from 'antd';
-import Script from 'next/script';
+import { Tag } from 'antd';
+import { Widget } from '@/components/Widget';
 
 export default function Home() {
   useLayoutEffect(() => {
@@ -44,34 +44,7 @@ export default function Home() {
         </Title>
       </div>
       <Example lng="en" theme="light" />
-      <div
-        style={{ marginTop: 30 }}
-        id="zoomment"
-        className="w-full"
-        data-theme="light"
-        data-language="en"
-        data-emotions="❤️,😀,🪄,🥸,💡,🤔,💩,😢"
-      >
-        <div>
-          <Flex
-            gap={8}
-            align="center"
-            justify="center"
-            style={{ paddingTop: 10 }}
-          >
-            <Skeleton.Button active />
-            <Skeleton.Button active />
-            <Skeleton.Button active />
-            <Skeleton.Button active />
-            <Skeleton.Button active />
-          </Flex>
-          <Skeleton.Input
-            block
-            style={{ height: 100, marginTop: 25, marginBottom: 25 }}
-            active
-          />
-        </div>
-      </div>
+      <Widget />
     </main>
   );
 }
