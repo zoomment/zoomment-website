@@ -25,7 +25,7 @@ type Props = {
 };
 
 const Sites = (props: Props) => {
-  const [selectedSiteId, selectSiteId] = useState<string>(props.sites[0]._id);
+  const [selectedSiteId, selectSiteId] = useState<string>(props.sites[0]?._id);
   const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState<TComment[]>([]);
   const [sites, setSites] = useState<TSite[]>(props.sites);
@@ -64,12 +64,13 @@ const Sites = (props: Props) => {
       setComments(comments);
       setLoading(false);
     };
-    getCommentsBySiteId();
+
+    if (selectedSiteId) {
+      getCommentsBySiteId();
+    }
   }, [selectedSiteId]);
 
-  if (!selectedSite) return null;
-
-  if (sites.length === 0) {
+  if (sites.length === 0 || !selectedSite) {
     return <AddFirstSite />;
   }
 

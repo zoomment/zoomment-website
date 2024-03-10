@@ -1,7 +1,54 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
+import { Button, Popconfirm } from 'antd';
+import Title from 'antd/es/typography/Title';
+import Paragraph from 'antd/es/typography/Paragraph';
+import { request } from '@/utils/request-client';
+import { useProfile } from '@/utils';
+import { useRouter } from 'next/navigation';
 
 const Account: React.FC = () => {
-  return <div style={{ padding: 24 }}>My account</div>;
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+  const { logout } = useProfile();
+
+  const onDeleteAccount = async () => {
+    setLoading(true);
+
+    await request({
+      path: '/users',
+      method: 'DELETE',
+    });
+
+    logout();
+    router.prefetch('/');
+    setLoading(false);
+  };
+
+  return (
+    <div style={{ padding: 24 }}>
+      <Title level={4}>Account settings</Title>
+      <Paragraph style={{ maxWidth: 500 }}>
+        Deleting your account will permanently erase all data. If you have
+        issues we can address, please reach out first.
+      </Paragraph>
+      <Popconfirm
+        placement="bottomLeft"
+        title="Delete account"
+        okText="Yes"
+        okButtonProps={{
+          danger: true,
+        }}
+        onConfirm={onDeleteAccount}
+        cancelText="Cancel"
+        description="Are you sure you want to delete your account?"
+      >
+        <Button loading={loading} danger>
+          Delete Account
+        </Button>
+      </Popconfirm>
+    </div>
+  );
 };
 
 export default Account;
