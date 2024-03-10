@@ -28,7 +28,7 @@ export default async function Blog() {
         engagement with interactive comments.
       </Typography>
       {posts.map((post) => (
-        <Typography key={post.slug}>
+        <Typography key={post.slug} style={{ marginBottom: 35 }}>
           {/* {post.preview} */}
           <Link
             as={`/blog/${post.slug}`}
