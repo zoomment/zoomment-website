@@ -2,7 +2,7 @@
 title: 'Step-by-Step Guide to Adding a Comments Section to Your Hugo Site'
 excerpt: 'In the world of static site generators, Hugo is renowned for its speed and flexibility. However, incorporating dynamic features such as a comments section requires a bit of external help. This article will guide you through adding a customizable comments widget to your Hugo site, enhancing interactivity and engagement for your visitors.'
 coverImage: ''
-date: '2024-03-10T05:35:07.322Z'
+date: '2024-03-10T02:11:00.322Z'
 ogImage:
   url: ''
 ---
