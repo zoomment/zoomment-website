@@ -2,7 +2,7 @@
 title: 'Step-by-Step Guide to Integrating a Comments Section in Your Jekyll Blog'
 excerpt: 'Incorporating a comment widget like Zoomment into your Jekyll website can significantly enhance user engagement by allowing visitors to leave comments on your posts. This guide will walk you through the steps to insert the provided Zoomment widget code into a Jekyll template, enabling a comments section on your site.'
 coverImage: ''
-date: '2024-03-11T18:00:00.322Z'
+date: '2024-03-11T08:00:00.322Z'
 ogImage:
   url: ''
 ---

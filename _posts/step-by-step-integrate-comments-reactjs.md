@@ -2,7 +2,7 @@
 title: 'Implementing a Comments Section in React.js Projects'
 excerpt: 'Integrating a comments section into your React application is a fantastic way to foster community and encourage user interaction. React`s component-based architecture makes it relatively straightforward to add dynamic features like a comments widget. This article will guide you through adding a customizable comments section to your React project, enhancing the user experience and engagement on your site.'
 coverImage: ''
-date: '2024-03-12T18:00:00.322Z'
+date: '2024-03-12T08:00:00.322Z'
 ogImage:
   url: ''
 ---
