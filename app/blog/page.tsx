@@ -3,14 +3,13 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Title from 'antd/es/typography/Title';
 import Paragraph from 'antd/es/typography/Paragraph';
-import Text from 'antd/es/typography/Text';
 import { Typography } from 'antd';
 import { CalendarOutlined } from '@ant-design/icons';
-import markdownToHtml from '@/utils/markdownToHtml';
 import dayjs from 'dayjs';
 
-export const metadata = {
-  title: 'Zoomment | Blog',
+export const metadata: Metadata = {
+  title:
+    'Zoomment Blog: Insights on Enhancing Web Engagement & Community Building',
   description:
     "Discover Zoomment, the ultimate commenting solution designed to boost engagement and foster community on your website. Explore features, integration tips, and success stories on our blog. Transform your site's interaction today.",
 };

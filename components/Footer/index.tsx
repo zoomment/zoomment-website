@@ -31,9 +31,7 @@ const Footer = () => {
                 Zoomment
               </Title>
               <Link href="/benefits">Benefits</Link>
-              <Link href="https://patreon.com/zoomment" target="_blank">
-                Patreon
-              </Link>
+              <Link href="/donate">Donate</Link>
               <Link
                 href="https://www.producthunt.com/posts/zoomment"
                 target="_blank"

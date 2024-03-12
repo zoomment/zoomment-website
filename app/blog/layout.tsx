@@ -1,12 +1,8 @@
-'use client';
 import React from 'react';
-import { Layout } from 'antd';
-
-const { Content } = Layout;
 
 const BlogLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <Content
+    <div
       style={{
         margin: '0 auto',
         maxWidth: 1000,
@@ -14,7 +10,7 @@ const BlogLayout = ({ children }: { children: React.ReactNode }) => {
       }}
     >
       <div style={{ padding: '40px 20px' }}>{children}</div>
-    </Content>
+    </div>
   );
 };
 

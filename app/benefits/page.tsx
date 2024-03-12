@@ -12,7 +12,8 @@ const Benefit = ({ title, children }: { title: string; children: string }) => {
 };
 
 export const metadata = {
-  title: 'Zoomment | Benefits',
+  title:
+    'Zoomment Advantages: Discover the Benefits of Our Commenting Platform',
   description:
     'Unlock the full potential of your website with Zoomment. Experience advanced features like customizable dashboards, real-time notifications, RSS feeds, and more. Elevate user interaction effortlessly.',
 };

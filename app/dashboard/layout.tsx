@@ -1,9 +1,7 @@
 'use client';
 import React from 'react';
-import { Breadcrumb, Layout, theme } from 'antd';
+import { Breadcrumb, theme } from 'antd';
 import Link from 'next/link';
-
-const { Content } = Layout;
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const {
@@ -11,7 +9,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   } = theme.useToken();
 
   return (
-    <Content
+    <div
       style={{
         margin: '0 auto',
         maxWidth: 1000,
@@ -41,7 +39,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           {children}
         </div>
       </div>
-    </Content>
+    </div>
   );
 };
 
