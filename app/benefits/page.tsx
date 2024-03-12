@@ -25,7 +25,7 @@ export default function Benefits() {
         maxWidth: 1000,
         width: '100%',
         margin: '0 auto',
-        padding: '50px 20px',
+        padding: '40px 20px',
       }}
     >
       <Title style={{ marginBottom: 10 }} level={1}>
