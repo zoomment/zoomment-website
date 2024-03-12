@@ -2,14 +2,10 @@
 import { useLayoutEffect } from 'react';
 import Example from '@/components/Example';
 import Title from 'antd/es/typography/Title';
-import { Tag, Flex, theme } from 'antd';
+import { Tag, Flex } from 'antd';
 import { Widget } from '@/components/Widget';
 
 export default function Home() {
-  const {
-    token: { colorBgContainer, boxShadowTertiary, colorBgSpotlight },
-  } = theme.useToken();
-
   useLayoutEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://cdn.zoomment.com/zoomment.min.js';

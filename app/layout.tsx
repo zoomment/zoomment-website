@@ -4,6 +4,7 @@ import { ConfigProvider, Layout } from 'antd';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Roboto } from 'next/font/google';
+import { openGraphImage } from './shared-metadata';
 import 'normalize.css';
 import './globals.css';
 
@@ -18,6 +19,9 @@ export const metadata: Metadata = {
     'Enhance engagement on your Static Site Generated (SSG) website effortlessly with Zoomment, an open-source commenting widget. Easily embed Zoomment to receive and manage comments, fostering community interaction seamlessly.',
   other: {
     zoomment: '65e5027029aeb252fcaae656',
+  },
+  openGraph: {
+    ...openGraphImage,
   },
 };
 
