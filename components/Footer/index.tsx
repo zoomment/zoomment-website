@@ -47,7 +47,7 @@ const Footer = () => {
               </Title>
               <Link href="/blog">Blog</Link>
               <Link href="https://github.com/zoomment" target="_blank">
-                GitHub
+                Source code
               </Link>
             </Flex>
           </Col>
