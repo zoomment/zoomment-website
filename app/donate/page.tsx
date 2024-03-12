@@ -22,7 +22,9 @@ const PrivacyPolicy = () => {
       <div style={{ padding: '40px 20px', width: '100%' }}>
         <Typography>
           <div>
-            <Title level={1}>Donate today</Title>
+            <Title level={1} style={{ marginBottom: 10 }}>
+              Donate today
+            </Title>
             <Paragraph
               style={{ marginBottom: 30, fontSize: '16px', maxWidth: 600 }}
             >

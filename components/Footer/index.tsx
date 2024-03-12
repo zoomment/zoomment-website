@@ -26,7 +26,7 @@ const Footer = () => {
       >
         <Row>
           <Col xs={24} md={8}>
-            <Flex gap={12} vertical>
+            <Flex gap={12} vertical align="flex-start">
               <Title style={{ paddingTop: 20 }} level={5}>
                 Zoomment
               </Title>
@@ -41,7 +41,7 @@ const Footer = () => {
             </Flex>
           </Col>
           <Col xs={24} md={8}>
-            <Flex gap={12} vertical>
+            <Flex gap={12} vertical align="flex-start">
               <Title style={{ paddingTop: 20 }} level={5}>
                 Resources
               </Title>

@@ -56,7 +56,7 @@ export default function Benefits() {
           </Benefit>
         </Col>
         <Col md={12}>
-          <Benefit title="📬 Notifications">
+          <Benefit title="🔔 Notifications">
             Stay updated with email notifications whenever a new comment is
             posted. This feature ensures you never miss out on user engagement,
             allowing you to respond promptly and keep the conversation flowing.
