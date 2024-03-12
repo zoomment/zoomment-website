@@ -26,7 +26,7 @@ const PrivacyPolicy = () => {
             <Paragraph
               style={{ marginBottom: 30, fontSize: '16px', maxWidth: 600 }}
             >
-              Every contribution fuels our platform's evolution and upkeep.
+              Every contribution fuels our platform&apos;s evolution and upkeep.
               Consistent support enables us to strategize for the future.
             </Paragraph>
           </div>
