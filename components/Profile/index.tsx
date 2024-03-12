@@ -6,7 +6,6 @@ import {
   UserOutlined,
   CaretDownOutlined,
   LoginOutlined,
-  GithubOutlined,
 } from '@ant-design/icons';
 import { useProfile } from '@/utils';
 
@@ -34,6 +33,11 @@ export default function Profile() {
               },
               {
                 key: '2',
+                onClick: () => router.push('/donate'),
+                label: 'Donate',
+              },
+              {
+                key: '3',
                 onClick: () => router.push('/dashboard/account'),
                 label: 'Account Settings',
               },
