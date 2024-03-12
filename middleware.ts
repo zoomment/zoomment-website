@@ -11,7 +11,11 @@ export function middleware(request: NextRequest) {
     let res = NextResponse.redirect(new URL('/dashboard', url));
 
     url.searchParams.delete('token');
-    res.cookies.set('token', newToken);
+    res.cookies.set('token', newToken, {
+      expires: new Date(+new Date() + 30000000000),
+      path: '/',
+      domain: `.${url.hostname}`,
+    });
 
     return res;
   }
