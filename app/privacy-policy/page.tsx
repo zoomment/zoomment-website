@@ -1,4 +1,4 @@
-import { Layout, Typography } from 'antd';
+import { Typography } from 'antd';
 import Title from 'antd/es/typography/Title';
 import Paragraph from 'antd/es/typography/Paragraph';
 
@@ -101,16 +101,16 @@ const PrivacyPolicy = () => {
 
             <Title level={3}>Place</Title>
             <Paragraph>
-              The Data is processed at the Owner's operating offices and in any
-              other places where the parties involved in the processing are
+              The Data is processed at the Owner&apos;s operating offices and in
+              any other places where the parties involved in the processing are
               located.
               <br />
               <br />
-              Depending on the User's location, data transfers may involve
-              transferring the User's Data to a country other than their own. To
-              find out more about the place of processing of such transferred
-              Data, Users can check the section containing details about the
-              processing of Personal Data.
+              Depending on the User&apos;s location, data transfers may involve
+              transferring the User&apos;s Data to a country other than their
+              own. To find out more about the place of processing of such
+              transferred Data, Users can check the section containing details
+              about the processing of Personal Data.
             </Paragraph>
 
             <Title level={3}>Retention time</Title>
@@ -332,16 +332,16 @@ const PrivacyPolicy = () => {
             </Title>
             <Title level={3}>Legal action</Title>
             <Paragraph>
-              The User's Personal Data may be used for legal purposes by the
-              Owner in Court or in the stages leading to possible legal action
-              arising from improper use of this Application or the related
-              Services.
+              The User&apos;s Personal Data may be used for legal purposes by
+              the Owner in Court or in the stages leading to possible legal
+              action arising from improper use of this Application or the
+              related Services.
               <br />
               The User declares to be aware that the Owner may be required to
               reveal personal data upon request of public authorities.
             </Paragraph>
             <Title level={3}>
-              Additional information about User's Personal Data
+              Additional information about User&apos;s Personal Data
             </Title>
             <Paragraph>
               In addition to the information contained in this privacy policy,
