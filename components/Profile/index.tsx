@@ -7,12 +7,12 @@ import {
   CaretDownOutlined,
   LoginOutlined,
 } from '@ant-design/icons';
-import { useProfile } from '@/utils';
+import { useAuth } from '@/contexts/AuthContext';
 
 export default function Profile() {
   const router = useRouter();
-  const { profile, loading, logout } = useProfile();
-  const username = profile && profile.email.replace(/@.*/g, '');
+  const { user, loading, logout } = useAuth();
+  const username = user && user.email.replace(/@.*/g, '');
 
   return (
     <div style={{ maxWidth: 300 }}>
@@ -21,7 +21,7 @@ export default function Profile() {
           <Skeleton.Button active style={{ width: 100 }} />
         </Flex>
       )}
-      {!loading && profile && (
+      {!loading && user && (
         <Dropdown
           trigger={['click']}
           menu={{
@@ -58,14 +58,14 @@ export default function Profile() {
               style={{ flexShrink: 0 }}
               size={28}
               icon={<UserOutlined />}
-              src={`https://www.gravatar.com/avatar/${profile?.gravatar}?d=monsterid`}
+              src={`https://www.gravatar.com/avatar/${user?.gravatar}?d=monsterid`}
             />
             <Text ellipsis>{username}</Text>
             <CaretDownOutlined />
           </Flex>
         </Dropdown>
       )}
-      {!loading && !profile && (
+      {!loading && !user && (
         <Flex gap={8}>
           <Button
             onClick={() => router.push('/auth')}

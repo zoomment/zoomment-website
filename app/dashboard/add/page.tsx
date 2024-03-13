@@ -7,11 +7,11 @@ import Paragraph from 'antd/es/typography/Paragraph';
 import Title from 'antd/es/typography/Title';
 import Example from '@/components/Example';
 import CodeBox from '@/components/CodeBox';
-import { useProfile } from '@/utils';
+import { useAuth } from '@/contexts/AuthContext';
 import { request } from '@/utils/request-client';
 
 const Add: React.FC = () => {
-  const { profile } = useProfile();
+  const { user } = useAuth();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -51,10 +51,10 @@ const Add: React.FC = () => {
         Strengthen your website&apos;s identity by adding a unique meta tag just
         before the {`</head>`} tag in your HTML.
       </Paragraph>
-      {profile ? (
-        <CodeBox>{`<meta name="zoomment" content="${profile.id}" />`}</CodeBox>
+      {user ? (
+        <CodeBox>{`<meta name="zoomment" content="${user.id}" />`}</CodeBox>
       ) : (
-        <Skeleton active title={{ style: { height: 52 } }} paragraph={false} />
+        <Skeleton active title={{ style: { height: 46 } }} paragraph={false} />
       )}
       <Title level={4} style={{ marginTop: 20, marginBottom: 5 }}>
         Step 3. Finalize Setup

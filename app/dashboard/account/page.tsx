@@ -4,13 +4,13 @@ import { Button, Popconfirm } from 'antd';
 import Title from 'antd/es/typography/Title';
 import Paragraph from 'antd/es/typography/Paragraph';
 import { request } from '@/utils/request-client';
-import { useProfile } from '@/utils';
+import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 
 const Account: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const { logout } = useProfile();
+  const { logout } = useAuth();
 
   const onDeleteAccount = async () => {
     setLoading(true);
@@ -21,7 +21,7 @@ const Account: React.FC = () => {
     });
 
     logout();
-    router.prefetch('/');
+    router.push('/');
     setLoading(false);
   };
 

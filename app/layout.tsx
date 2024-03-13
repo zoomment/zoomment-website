@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { AuthProvider } from '@/contexts/AuthContext';
 import { ConfigProvider, Layout } from 'antd';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -35,9 +36,11 @@ export default function RootLayout({
       <body className={roboto.className}>
         <AntdRegistry>
           <ConfigProvider>
-            <Header />
-            <Layout style={{ minHeight: '100vh' }}>{children}</Layout>
-            <Footer />
+            <AuthProvider>
+              <Header />
+              <Layout style={{ minHeight: '100vh' }}>{children}</Layout>
+              <Footer />
+            </AuthProvider>
           </ConfigProvider>
         </AntdRegistry>
       </body>
