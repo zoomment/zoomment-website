@@ -22,7 +22,7 @@ type AuthContextType = {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const token = getCookie('token');
+  const token = getCookie('zoommentToken');
 
   const [user, setUser] = useState<User>(null);
   const [loading, setLoading] = useState(true);
@@ -39,8 +39,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const logout = () => {
-    deleteCookie('token');
-    deleteCookie('token', {
+    deleteCookie('zoommentToken');
+    deleteCookie('zoommentToken', {
       path: '/',
       domain: `.${window.location.hostname}`,
     });

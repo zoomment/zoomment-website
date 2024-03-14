@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  const token = request.cookies.get('token')?.value;
+  const token = request.cookies.get('zoommentToken')?.value;
   const url = request.nextUrl;
   const newToken = url.searchParams.get('zoommentToken');
 
@@ -10,8 +10,8 @@ export function middleware(request: NextRequest) {
   if (newToken) {
     let res = NextResponse.redirect(new URL('/dashboard', url));
 
-    url.searchParams.delete('token');
-    res.cookies.set('token', newToken, {
+    url.searchParams.delete('zoommentToken');
+    res.cookies.set('zoommentToken', newToken, {
       expires: new Date(+new Date() + 30000000000),
       path: '/',
       domain: `.${url.hostname}`,
