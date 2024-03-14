@@ -15,6 +15,8 @@ export function middleware(request: NextRequest) {
       expires: new Date(+new Date() + 30000000000),
       path: '/',
       domain: `.${url.hostname}`,
+      sameSite: 'none',
+      secure: true,
     });
 
     return res;
