@@ -12,7 +12,7 @@ import { useAuth } from '@/contexts/AuthContext';
 export default function Profile() {
   const router = useRouter();
   const { user, loading, logout } = useAuth();
-  const username = user && user.email.replace(/@.*/g, '');
+  const emailName = user && user.email.replace(/@.*/g, '');
 
   return (
     <div style={{ maxWidth: 300 }}>
@@ -60,7 +60,7 @@ export default function Profile() {
               icon={<UserOutlined />}
               src={`https://www.gravatar.com/avatar/${user?.gravatar}?d=monsterid`}
             />
-            <Text ellipsis>{username}</Text>
+            <Text ellipsis>{user.name || emailName}</Text>
             <CaretDownOutlined />
           </Flex>
         </Dropdown>
