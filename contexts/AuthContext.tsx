@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     deleteCookie('token');
     deleteCookie('token', {
       path: '/',
-      domain: `./${window.location.hostname}`,
+      domain: `.${window.location.hostname}`,
     });
     setUser(null);
   };
