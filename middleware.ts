@@ -8,9 +8,10 @@ export function middleware(request: NextRequest) {
   //TODO add token validation
 
   if (newToken) {
-    let res = NextResponse.next();
-
     url.searchParams.delete('zoommentToken');
+
+    const res = NextResponse.redirect(url);
+
     res.cookies.set('zoommentToken', newToken, {
       expires: new Date(+new Date() + 30000000000),
       path: '/',
