@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 export function middleware(request: NextRequest) {
   const token = request.cookies.get('token')?.value;
   const url = request.nextUrl;
-  const newToken = url.searchParams.get('token');
+  const newToken = url.searchParams.get('zoommentToken');
 
   //TODO add token validation
 
