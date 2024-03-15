@@ -26,6 +26,7 @@ Open the template file for editing and locate the position where you want the co
   id="zoomment"
   data-theme="light"
   data-language="en"
+  data-gravatar="monsterid"
   data-emotions="❤️,😀,🪄,🥸,💡,🤔,💩,😢"
 ></div>
 <script src="https://cdn.zoomment.com/zoomment.min.js"></script>

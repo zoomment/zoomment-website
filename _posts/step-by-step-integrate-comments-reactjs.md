@@ -33,6 +33,7 @@ const CommentsWidget = () => {
       id="zoomment"
       data-theme="light"
       data-language="en"
+      data-gravatar="monsterid"
       data-emotions="❤️,😀,🪄,🥸,💡,🤔,💩,😢"
     ></div>
   );

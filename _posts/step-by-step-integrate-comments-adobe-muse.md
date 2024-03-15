@@ -23,6 +23,7 @@ Open your Adobe Muse project and navigate to the page where you wish to add the 
   id="zoomment"
   data-theme="light"
   data-language="en"
+  data-gravatar="monsterid"
   data-emotions="❤️,😀,🪄,🥸,💡,🤔,💩,😢"
 ></div>
 <script src="https://cdn.zoomment.com/zoomment.min.js"></script>

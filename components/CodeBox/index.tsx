@@ -11,6 +11,7 @@ export default function CodeBox({ children }: { children: ReactNode }) {
           padding: '12px 16px',
           fontSize: 13,
           borderRadius: 6,
+          position: 'relative',
         }}
       >
         {children}

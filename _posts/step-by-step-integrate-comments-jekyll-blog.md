@@ -26,6 +26,7 @@ Open `_layouts/post.html` in your text editor and scroll to the location where y
   id="zoomment"
   data-theme="light"
   data-language="en"
+  data-gravatar="monsterid"
   data-emotions="❤️,😀,🪄,🥸,💡,🤔,💩,😢"
 ></div>
 <script src="https://cdn.zoomment.com/zoomment.min.js"></script>
