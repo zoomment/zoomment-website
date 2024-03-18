@@ -20,6 +20,7 @@
     "normalize.css": "^8.0.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-zoomment": "^1.0.5",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1"
   },
