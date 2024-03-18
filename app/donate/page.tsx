@@ -57,6 +57,18 @@ const Donate = () => {
                 interactions.
               </DonationCard>
             </Col>
+            <Col md={12}>
+              <DonationCard
+                name="Open Collective"
+                logo="../opencollective-icon.svg"
+                url="https://opencollective.com/zoomment"
+              >
+                Your contributions on Open Collective directly fuel Zoomment's
+                development, helping us enhance features, bolster security, and
+                support our open-source community. Every donation, big or small,
+                empowers us to keep Zoomment free, innovative, and user-centric.
+              </DonationCard>
+            </Col>
           </Row>
         </Typography>
       </div>
