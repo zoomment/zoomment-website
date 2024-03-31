@@ -1,3 +1,3 @@
 export const openGraphImage = {
-  images: ['./og-image.png'],
+  images: ['https://zoomment.com/og-image.png'],
 };

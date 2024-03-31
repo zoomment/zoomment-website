@@ -14,64 +14,75 @@ const Donate = () => {
   return (
     <div
       style={{
-        margin: '0 auto',
-        maxWidth: 1000,
-        width: '100%',
+        backgroundImage:
+          'linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%)',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: '100% 280px',
       }}
     >
-      <div style={{ padding: '40px 20px', width: '100%' }}>
-        <Typography>
-          <div>
-            <Title level={1} style={{ marginBottom: 10 }}>
-              Donate today
-            </Title>
-            <Paragraph
-              style={{ marginBottom: 30, fontSize: '16px', maxWidth: 600 }}
-            >
-              Every contribution fuels our platform&apos;s evolution and upkeep.
-              Consistent support enables us to strategize for the future.
-            </Paragraph>
-          </div>
+      <div
+        style={{
+          margin: '0 auto',
+          maxWidth: 1000,
+          width: '100%',
+        }}
+      >
+        <div style={{ padding: '40px 20px', width: '100%' }}>
+          <Typography>
+            <div>
+              <Title level={1} style={{ marginBottom: 10 }}>
+                Donate today
+              </Title>
+              <Paragraph
+                style={{ marginBottom: 30, fontSize: '16px', maxWidth: 600 }}
+              >
+                Every contribution fuels our platform&apos;s evolution and
+                upkeep. Consistent support enables us to strategize for the
+                future.
+              </Paragraph>
+            </div>
 
-          <Row gutter={[28, 28]}>
-            <Col md={12}>
-              <DonationCard
-                name="Patreon"
-                logo="./patreon-logo.svg"
-                url="https://patreon.com/zoomment"
-              >
-                Support Us on Patreon! Join our community of patrons and enjoy
-                exclusive benefits while helping us enhance and expand Zoomment.
-                Your support fuels our mission to revolutionize web engagement.
-              </DonationCard>
-            </Col>
-            <Col md={12}>
-              <DonationCard
-                name="Github"
-                logo="../github-mark.svg"
-                url="https://github.com/sponsors/zoomment"
-              >
-                Become a Sponsor on GitHub! Your sponsorship directly
-                contributes to the development and improvement of Zoomment. Help
-                us continue building this open-source platform for vibrant web
-                interactions.
-              </DonationCard>
-            </Col>
-            <Col md={12}>
-              <DonationCard
-                name="Open Collective"
-                logo="../opencollective-icon.svg"
-                url="https://opencollective.com/zoomment"
-              >
-                Your contributions on Open Collective directly fuel
-                Zoomment&apos;s development, helping us enhance features,
-                bolster security, and support our open-source community. Every
-                donation, big or small, empowers us to keep Zoomment free,
-                innovative, and user-centric.
-              </DonationCard>
-            </Col>
-          </Row>
-        </Typography>
+            <Row gutter={[28, 28]}>
+              <Col md={12}>
+                <DonationCard
+                  name="Patreon"
+                  logo="./patreon-logo.svg"
+                  url="https://patreon.com/zoomment"
+                >
+                  Support Us on Patreon! Join our community of patrons and enjoy
+                  exclusive benefits while helping us enhance and expand
+                  Zoomment. Your support fuels our mission to revolutionize web
+                  engagement.
+                </DonationCard>
+              </Col>
+              <Col md={12}>
+                <DonationCard
+                  name="Github"
+                  logo="../github-mark.svg"
+                  url="https://github.com/sponsors/zoomment"
+                >
+                  Become a Sponsor on GitHub! Your sponsorship directly
+                  contributes to the development and improvement of Zoomment.
+                  Help us continue building this open-source platform for
+                  vibrant web interactions.
+                </DonationCard>
+              </Col>
+              <Col md={12}>
+                <DonationCard
+                  name="Open Collective"
+                  logo="../opencollective-icon.svg"
+                  url="https://opencollective.com/zoomment"
+                >
+                  Your contributions on Open Collective directly fuel
+                  Zoomment&apos;s development, helping us enhance features,
+                  bolster security, and support our open-source community. Every
+                  donation, big or small, empowers us to keep Zoomment free,
+                  innovative, and user-centric.
+                </DonationCard>
+              </Col>
+            </Row>
+          </Typography>
+        </div>
       </div>
     </div>
   );
