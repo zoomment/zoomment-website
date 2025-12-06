@@ -1,10 +1,10 @@
-'use client';
-import { useState, useCallback } from 'react';
-import { Button, List, Avatar, Dropdown } from 'antd';
-import { MoreOutlined } from '@ant-design/icons';
-import { TComment } from '@/types';
-import { request } from '@/utils/request-client';
-import dayjs from 'dayjs';
+"use client";
+import { useState, useCallback } from "react";
+import { Button, List, Avatar, Dropdown } from "antd";
+import { MoreOutlined } from "@ant-design/icons";
+import { TComment } from "@/types";
+import { request } from "@/utils/request-client";
+import dayjs from "dayjs";
 
 type Props = {
   comment: TComment;
@@ -19,7 +19,7 @@ export const Comment = ({ comment, onDelete }: Props) => {
       setLoading(true);
 
       await request({
-        method: 'DELETE',
+        method: "DELETE",
         path: `/comments/${comment._id}?secret=${comment.secret}`,
       });
 
@@ -35,21 +35,21 @@ export const Comment = ({ comment, onDelete }: Props) => {
       actions={[
         <Dropdown
           key="comment-menu"
-          destroyPopupOnHide
-          trigger={['click']}
+          destroyOnHidden
+          trigger={["click"]}
           placement="bottomRight"
           menu={{
             items: [
               {
-                key: '1',
-                onClick: () => window.open(comment.pageUrl, '_blank'),
-                label: 'Open page',
+                key: "1",
+                onClick: () => window.open(comment.pageUrl, "_blank"),
+                label: "Open page",
               },
               {
-                key: '2',
+                key: "2",
                 danger: true,
                 onClick: () => onDeleteComment(comment),
-                label: 'Delete',
+                label: "Delete",
               },
             ],
           }}
@@ -68,7 +68,7 @@ export const Comment = ({ comment, onDelete }: Props) => {
         description={
           <>
             <a style={{ fontSize: 12 }} target="_blank" href={comment.pageUrl}>
-              {dayjs(comment.createdAt).format('HH:mm - DD MMM YYYY')}
+              {dayjs(comment.createdAt).format("HH:mm - DD MMM YYYY")}
             </a>
             <div>{comment.body}</div>
           </>

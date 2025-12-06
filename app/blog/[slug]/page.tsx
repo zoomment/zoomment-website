@@ -1,12 +1,12 @@
-import { getAllPosts, getPostBySlug } from '@/utils/blogApi';
-import { Metadata } from 'next';
-import Title from 'antd/es/typography/Title';
-import Paragraph from 'antd/es/typography/Paragraph';
-import { Typography } from 'antd';
-import { notFound } from 'next/navigation';
-import markdownToHtml from '@/utils/markdownToHtml';
-import { Widget } from '@/components/Widget';
-import dayjs from 'dayjs';
+import { getAllPosts, getPostBySlug } from "@/utils/blogApi";
+import { Metadata } from "next";
+import Title from "antd/es/typography/Title";
+import Paragraph from "antd/es/typography/Paragraph";
+import { Typography } from "antd";
+import { notFound } from "next/navigation";
+import markdownToHtml from "@/utils/markdownToHtml";
+import { Widget } from "@/components/Widget";
+import dayjs from "dayjs";
 
 type Params = {
   params: {
@@ -14,8 +14,9 @@ type Params = {
   };
 };
 
-export function generateMetadata({ params }: Params): Metadata {
-  const post = getPostBySlug(params.slug);
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
 
   if (!post) {
     return notFound();
@@ -38,13 +39,14 @@ export async function generateStaticParams() {
 }
 
 export default async function Post({ params }: Params) {
-  const post = getPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
 
   if (!post) {
     return notFound();
   }
 
-  const content = await markdownToHtml(post.content || '');
+  const content = await markdownToHtml(post.content || "");
 
   return (
     <>
@@ -53,7 +55,7 @@ export default async function Post({ params }: Params) {
         <Title level={1}>{post.title}</Title>
         {/* {post.coverImage} */}
         <Paragraph style={{ fontSize: 20 }}>
-          {dayjs(post.date).format('DD MMM YYYY')}
+          {dayjs(post.date).format("DD MMM YYYY")}
         </Paragraph>
         <Paragraph>
           <div dangerouslySetInnerHTML={{ __html: content }} />
