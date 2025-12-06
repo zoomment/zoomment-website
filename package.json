@@ -11,12 +11,12 @@
   "dependencies": {
     "@ant-design/nextjs-registry": "^1.0.0",
     "antd": "^5.14.2",
-    "cookies-next": "^4.1.1",
+    "cookies-next": "^4.3.0",
     "dayjs": "^1.11.10",
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
     "jwt-decode": "^4.0.0",
-    "next": "14.1.0",
+    "next": "14.2.33",
     "normalize.css": "^8.0.1",
     "react": "^18",
     "react-dom": "^18",
@@ -30,7 +30,7 @@
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
-    "eslint-config-next": "14.1.0",
+    "eslint-config-next": "16.0.7",
     "typescript": "^5"
   }
 }
