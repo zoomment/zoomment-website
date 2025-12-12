@@ -16,7 +16,7 @@
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
     "jwt-decode": "^4.0.0",
-    "next": "^16.0.7",
+    "next": "^16.0.10",
     "normalize.css": "^8.0.1",
     "react": "^18",
     "react-dom": "^18",
