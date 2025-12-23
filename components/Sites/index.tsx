@@ -61,7 +61,7 @@ const Sites = (props: Props) => {
         method: 'GET',
         path: `/comments/sites/${selectedSiteId}`,
       });
-      setComments(comments);
+      setComments(comments.comments || []);
       setLoading(false);
     };
 
