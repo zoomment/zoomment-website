@@ -29,6 +29,7 @@ export default function Example({
       {`  data-language="${lng}"\n`}
       {`  data-gravatar="monsterid"\n`}
       {`  data-emotions="❤️,😀,🪄,🥸,💡,🤔,💩,😢"\n`}
+      {`  data-visitors="true"\n`}
       {`></div>\n`}
       {`<script src="https://cdn.zoomment.com/zoomment.min.js"></script>`}
     </CodeBox>
