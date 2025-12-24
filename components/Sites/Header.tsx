@@ -1,10 +1,10 @@
-'use client';
-import { useState, useCallback } from 'react';
-import { Button, Flex, Dropdown, theme } from 'antd';
-import Title from 'antd/es/typography/Title';
-import { MoreOutlined } from '@ant-design/icons';
-import { TSite } from '@/types';
-import { request } from '@/utils/request-client';
+"use client";
+import { useState, useCallback } from "react";
+import { Button, Flex, Dropdown, theme } from "antd";
+import Title from "antd/es/typography/Title";
+import { MoreOutlined } from "@ant-design/icons";
+import { TSite } from "@/types";
+import { request } from "@/utils/request-client";
 
 type Props = {
   site: TSite;
@@ -23,7 +23,7 @@ export const Header = ({ site, onDelete }: Props) => {
     setLoading(true);
 
     await request({
-      method: 'DELETE',
+      method: "DELETE",
       path: `/sites/${siteId}`,
     });
 
@@ -36,9 +36,9 @@ export const Header = ({ site, onDelete }: Props) => {
       justify="space-between"
       align="center"
       style={{
-        position: 'sticky',
+        position: "sticky",
         top: 0,
-        padding: '0 15px',
+        padding: "0 15px",
         height: 50,
         zIndex: 80,
         backgroundColor: colorBgContainer,
@@ -46,23 +46,23 @@ export const Header = ({ site, onDelete }: Props) => {
       }}
     >
       <Title level={4} style={{ margin: 0 }}>
-        Comments
+        {site.domain}
       </Title>
       <Dropdown
-        trigger={['click']}
+        trigger={["click"]}
         placement="bottomRight"
         menu={{
           items: [
             {
-              key: '1',
-              onClick: () => window.open(`/rss/${site.domain}`, '_blank'),
-              label: 'Get RSS feed',
+              key: "1",
+              onClick: () => window.open(`/rss/${site.domain}`, "_blank"),
+              label: "Get RSS feed",
             },
             {
-              key: '4',
+              key: "4",
               danger: true,
               onClick: () => onDeleteSite(),
-              label: 'Delete site',
+              label: "Delete site",
             },
           ],
         }}
