@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import {
   Menu,
   Row,
@@ -10,6 +10,7 @@ import {
   Skeleton,
   Empty,
   Divider,
+  Spin,
 } from 'antd';
 import Link from 'next/link';
 import { NumberOutlined, PlusCircleOutlined } from '@ant-design/icons';
@@ -24,11 +25,19 @@ type Props = {
   sites: TSite[];
 };
 
+const COMMENTS_LIMIT = 10;
+
 const Sites = (props: Props) => {
   const [selectedSiteId, selectSiteId] = useState<string>(props.sites[0]?._id);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [comments, setComments] = useState<TComment[]>([]);
   const [sites, setSites] = useState<TSite[]>(props.sites);
+  const [hasMore, setHasMore] = useState(false);
+  const [skip, setSkip] = useState(0);
+  
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const loadMoreRef = useRef<HTMLDivElement | null>(null);
 
   const selectedSite = useMemo(
     () => sites.find((site) => site._id === selectedSiteId),
@@ -54,14 +63,36 @@ const Sites = (props: Props) => {
     [sites]
   );
 
+  const loadMoreComments = useCallback(async () => {
+    if (loadingMore || !hasMore) return;
+    
+    setLoadingMore(true);
+    const newSkip = skip + COMMENTS_LIMIT;
+    
+    const response = await request({
+      method: 'GET',
+      path: `/comments/sites/${selectedSiteId}?skip=${newSkip}&limit=${COMMENTS_LIMIT}`,
+    });
+    
+    setComments((prev) => [...prev, ...(response.comments || [])]);
+    setHasMore(response.hasMore ?? false);
+    setSkip(newSkip);
+    setLoadingMore(false);
+  }, [loadingMore, hasMore, skip, selectedSiteId]);
+
+  // Initial load when site changes
   useEffect(() => {
     const getCommentsBySiteId = async () => {
       setLoading(true);
-      const comments = await request({
+      setSkip(0);
+      
+      const response = await request({
         method: 'GET',
-        path: `/comments/sites/${selectedSiteId}`,
+        path: `/comments/sites/${selectedSiteId}?skip=0&limit=${COMMENTS_LIMIT}`,
       });
-      setComments(comments.comments || []);
+      
+      setComments(response.comments || []);
+      setHasMore(response.hasMore ?? false);
       setLoading(false);
     };
 
@@ -69,6 +100,30 @@ const Sites = (props: Props) => {
       getCommentsBySiteId();
     }
   }, [selectedSiteId]);
+
+  // Intersection Observer for infinite scroll
+  useEffect(() => {
+    if (loading) return;
+
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && hasMore && !loadingMore) {
+          loadMoreComments();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (loadMoreRef.current) {
+      observerRef.current.observe(loadMoreRef.current);
+    }
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [loading, hasMore, loadingMore, loadMoreComments]);
 
   if (sites.length === 0 || !selectedSite) {
     return <AddFirstSite />;
@@ -117,6 +172,16 @@ const Sites = (props: Props) => {
                 />
               )}
             />
+            <div
+              ref={loadMoreRef}
+              style={{
+                padding: '20px 0',
+                textAlign: 'center',
+                minHeight: 60,
+              }}
+            >
+              {loadingMore && <Spin />}
+            </div>
           </div>
         )}
         {!loading && comments.length === 0 && (

@@ -16,7 +16,7 @@
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
     "jwt-decode": "^4.0.0",
-    "next": "^16.0.7",
+    "next": "^16.1.1",
     "normalize.css": "^8.0.1",
     "react": "^18",
     "react-dom": "^18",
@@ -29,7 +29,7 @@
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "eslint": "^9.39.1",
-    "eslint-config-next": "^16.0.7",
+    "eslint-config-next": "^16.1.1",
     "typescript": "^5"
   }
 }

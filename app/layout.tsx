@@ -1,25 +1,25 @@
-import type { Metadata } from 'next';
-import { AntdRegistry } from '@ant-design/nextjs-registry';
-import { AuthProvider } from '@/contexts/AuthContext';
-import { ConfigProvider, Layout } from 'antd';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { Roboto } from 'next/font/google';
-import { openGraphImage } from './shared-metadata';
-import 'normalize.css';
-import './globals.css';
+import type { Metadata } from "next";
+import { AntdRegistry } from "@ant-design/nextjs-registry";
+import { AuthProvider } from "@/contexts/AuthContext";
+import { ConfigProvider, Layout } from "antd";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Roboto } from "next/font/google";
+import { openGraphImage } from "./shared-metadata";
+import "normalize.css";
+import "./globals.css";
 
 const roboto = Roboto({
-  weight: ['400', '500'],
-  subsets: ['latin'],
+  weight: ["400", "500"],
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: 'Zoomment: Empower Your Website with Open Source Commenting Widget',
+  title: "Zoomment: Empower Your Website with Open Source Commenting Widget",
   description:
-    'Enhance engagement on your Static Site Generated (SSG) website effortlessly with Zoomment, an open-source commenting widget. Easily embed Zoomment to receive and manage comments, fostering community interaction seamlessly.',
+    "Enhance engagement on your Static Site Generated (SSG) website effortlessly with Zoomment, an open-source commenting widget. Easily embed Zoomment to receive and manage comments, fostering community interaction seamlessly.",
   other: {
-    zoomment: '65e5027029aeb252fcaae656',
+    zoomment: "65e5027029aeb252fcaae656",
   },
   openGraph: {
     ...openGraphImage,
@@ -38,7 +38,7 @@ export default function RootLayout({
           <ConfigProvider>
             <AuthProvider>
               <Header />
-              <Layout style={{ minHeight: '100vh' }}>{children}</Layout>
+              <Layout style={{ minHeight: "100vh" }}>{children}</Layout>
               <Footer />
             </AuthProvider>
           </ConfigProvider>

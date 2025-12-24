@@ -1,18 +1,18 @@
-import { Feed } from 'feed';
-import { TComment } from '@/types';
-import { GetServerSideProps } from 'next';
+import { Feed } from "feed";
+import { TComment } from "@/types";
+import { GetServerSideProps } from "next";
 
 const generateRssFeed = async (posts: TComment[]) => {
   const feed = new Feed({
-    title: 'Zoomment.com',
-    description: 'Stay up to date with my latest content',
-    id: 'https://zoomment.com',
-    link: 'https://zoomment.com',
-    language: 'en',
-    copyright: '',
+    title: "Zoomment.com",
+    description: "Stay up to date with my latest content",
+    id: "https://zoomment.com",
+    link: "https://zoomment.com",
+    language: "en",
+    copyright: "",
     author: {
-      name: 'Zoomment.com',
-      link: 'https://zoomment.com',
+      name: "Zoomment.com",
+      link: "https://zoomment.com",
     },
   });
 
@@ -38,10 +38,11 @@ export const getServerSideProps: GetServerSideProps = async ({
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/comments?domain=${params?.domain}`
   );
-  const json: TComment[] = await response.json();
-  const rss = await generateRssFeed(json);
+  const json = await response.json();
+  const posts: TComment[] = json.comments ?? [];
+  const rss = await generateRssFeed(posts);
 
-  res.setHeader('Content-Type', 'text/xml');
+  res.setHeader("Content-Type", "text/xml");
   res.write(rss);
   res.end();
 
