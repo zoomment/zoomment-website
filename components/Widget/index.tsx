@@ -1,23 +1,21 @@
-'use client';
+"use client";
 
-import { Skeleton, Flex } from 'antd';
-import { useEffect } from 'react';
+import { Skeleton, Flex } from "antd";
+import { useLayoutEffect } from "react";
 
 export const Widget = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-
-    script.src = 'https://cdn.zoomment.com/zoomment.min.js';
+  useLayoutEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://cdn.zoomment.com/zoomment.min.js";
     script.async = true;
     document.body.appendChild(script);
-
     return () => {
       document.body.removeChild(script);
     };
-  }, []);
+  });
 
   return (
-    <div style={{ marginTop: 40, width: '100%' }}>
+    <div style={{ marginTop: 40, width: "100%" }}>
       <div
         id="zoomment"
         data-theme="light"
@@ -47,4 +45,3 @@ export const Widget = () => {
     </div>
   );
 };
-
