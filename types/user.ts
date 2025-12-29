@@ -5,4 +5,6 @@ export type TUser = {
   name: string;
   gravatar: string;
   role: number;
+  isVerified: boolean;
+  createdAt: Date;
 };

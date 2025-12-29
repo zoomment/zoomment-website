@@ -14,7 +14,7 @@ const getRoleLabel = (role: number): { label: string; color: string } => {
     case 1:
       return { label: "Admin", color: "red" };
     case 2:
-      return { label: "Moderator", color: "orange" };
+      return { label: "Super Admin", color: "orange" };
     default:
       return { label: "User", color: "blue" };
   }
@@ -55,6 +55,29 @@ const columns: TableColumnsType<TUser> = [
       return <Tag color={color}>{label}</Tag>;
     },
   },
+  {
+    title: "Verified",
+    dataIndex: "isVerified",
+    key: "isVerified",
+    width: 90,
+    render: (isVerified: boolean) => (
+      <Tag color={isVerified ? "green" : "default"}>
+        {isVerified ? "Yes" : "No"}
+      </Tag>
+    ),
+  },
+  {
+    title: "Registered",
+    dataIndex: "createdAt",
+    key: "createdAt",
+    width: 120,
+    render: (createdAt: Date) =>
+      new Date(createdAt).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      }),
+  },
 ];
 
 const UsersList: React.FC<Props> = ({ users }) => {
@@ -62,6 +85,7 @@ const UsersList: React.FC<Props> = ({ users }) => {
     <div style={{ padding: 24 }}>
       <Title level={4}>Users Management</Title>
       <Table
+        scroll={{ x: 1000, y: "calc(100vh - 100px)" }}
         size="small"
         columns={columns}
         dataSource={users}
