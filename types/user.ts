@@ -1,6 +1,7 @@
 export type TUser = {
-  id: string;
+  _id: string;
   email: string;
   name: string;
   gravatar: string;
+  role: number;
 };
