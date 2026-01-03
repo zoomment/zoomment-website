@@ -1,10 +1,10 @@
 ---
-title: 'A Guide to Zoomment Widget Configuration'
+title: "A Guide to Zoomment Widget Configuration"
 excerpt: "Zoomment, an innovative open-source commenting platform, is not just about fostering engaging discussions on your website; it's about doing so in a way that perfectly aligns with your site's aesthetic, audience's language preferences, and the tone of interaction you wish to establish. Through its versatile configuration options, Zoomment allows for a high degree of customization, ensuring that integrating a comments section doesn't mean compromising on your site's unique identity."
-coverImage: ''
-date: '2024-03-15T05:35:07.322Z'
+coverImage: ""
+date: "2024-03-15T05:35:07.322Z"
 ogImage:
-  url: ''
+  url: ""
 ---
 
 Zoomment, an innovative open-source commenting platform, is not just about fostering engaging discussions on your website; it's about doing so in a way that perfectly aligns with your site's aesthetic, audience's language preferences, and the tone of interaction you wish to establish. Through its versatile configuration options, Zoomment allows for a high degree of customization, ensuring that integrating a comments section doesn't mean compromising on your site's unique identity. Let's dive into the key configuration options that make Zoomment so adaptable:
@@ -51,3 +51,9 @@ The `data-gravatar` attribute in Zoomment allows you to specify a default avatar
 - `retro`: Delivers awesome generated, 8-bit arcade-style pixelated faces, appealing to fans of vintage video games and nostalgia.
 - `robohash`: Generates a robot avatar with different colors, faces, etc. It’s a futuristic and creative option for tech enthusiasts.
 - `blank`: Displays a transparent PNG image. This minimalistic approach is unobtrusive, keeping the focus on the comment content.
+
+#### Page Views
+
+Zoomment includes a built-in page view tracking feature that allows you to display how many visitors have viewed a particular page. This can be useful for showing content popularity and engagement metrics to your readers.
+
+To enable page view tracking, simply add the `data-visitors="true"` attribute to your Zoomment widget code.

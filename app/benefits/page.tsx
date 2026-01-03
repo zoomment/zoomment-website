@@ -1,11 +1,11 @@
-import Title from 'antd/es/typography/Title';
-import { Row, Col, Card } from 'antd';
-import Paragraph from 'antd/es/typography/Paragraph';
+import Title from "antd/es/typography/Title";
+import { Row, Col, Card } from "antd";
+import Paragraph from "antd/es/typography/Paragraph";
 
 const Benefit = ({ title, children }: { title: string; children: string }) => {
   return (
     <Col md={12}>
-      <Card style={{ height: '100%' }}>
+      <Card style={{ height: "100%" }}>
         <Title level={4}>{title}</Title>
         <Paragraph>{children}</Paragraph>
       </Card>
@@ -15,9 +15,9 @@ const Benefit = ({ title, children }: { title: string; children: string }) => {
 
 export const metadata = {
   title:
-    'Zoomment Advantages: Discover the Benefits of Our Commenting Platform',
+    "Zoomment Advantages: Discover the Benefits of Our Commenting Platform",
   description:
-    'Unlock the full potential of your website with Zoomment. Experience advanced features like customizable dashboards, real-time notifications, RSS feeds, and more. Elevate user interaction effortlessly.',
+    "Unlock the full potential of your website with Zoomment. Experience advanced features like customizable dashboards, real-time notifications, RSS feeds, and more. Elevate user interaction effortlessly.",
 };
 
 export default function Benefits() {
@@ -25,15 +25,15 @@ export default function Benefits() {
     <main
       style={{
         maxWidth: 1000,
-        width: '100%',
-        margin: '0 auto',
-        padding: '40px 20px',
+        width: "100%",
+        margin: "0 auto",
+        padding: "40px 20px",
       }}
     >
       <Title style={{ marginBottom: 10 }} level={1}>
         Benefits
       </Title>
-      <Paragraph style={{ marginBottom: 30, fontSize: '16px', maxWidth: 600 }}>
+      <Paragraph style={{ marginBottom: 30, fontSize: "16px", maxWidth: 600 }}>
         Discover Zoomment&apos;s key benefits: Easy-to-manage comments,
         customizable features, and enhanced engagement with no technical hassle.
       </Paragraph>
@@ -81,6 +81,17 @@ export default function Benefits() {
           setup process, you can have Zoomment running on your site in no time,
           transforming your website&apos;s engagement capabilities without the
           hassle.
+        </Benefit>
+        <Benefit title="👁️ Page View Tracking">
+          Zoomment allows you to track page views for your comments section,
+          giving you insights into how many people are engaging with your
+          content. This feature helps you understand your audience and improve
+          your content.
+        </Benefit>
+        <Benefit title="💬 Replies">
+          Zoomment allows you to reply to comments, giving you a way to engage
+          with your audience and respond to their comments. This feature helps
+          you build a community and improve your content.
         </Benefit>
       </Row>
       <Paragraph style={{ marginTop: 30 }}>

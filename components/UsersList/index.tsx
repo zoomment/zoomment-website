@@ -85,7 +85,7 @@ const UsersList: React.FC<Props> = ({ users }) => {
     <div style={{ padding: 24 }}>
       <Title level={4}>Users Management</Title>
       <Table
-        scroll={{ x: 1000, y: "calc(100vh - 100px)" }}
+        scroll={{ x: 1000, y: "calc(100vh - 300px)" }}
         size="small"
         columns={columns}
         dataSource={users}
