@@ -45,18 +45,6 @@ const Donate = () => {
             <Row gutter={[28, 28]}>
               <Col md={12}>
                 <DonationCard
-                  name="Patreon"
-                  logo="./patreon-logo.svg"
-                  url="https://patreon.com/zoomment"
-                >
-                  Support Us on Patreon! Join our community of patrons and enjoy
-                  exclusive benefits while helping us enhance and expand
-                  Zoomment. Your support fuels our mission to revolutionize web
-                  engagement.
-                </DonationCard>
-              </Col>
-              <Col md={12}>
-                <DonationCard
                   name="Github"
                   logo="../github-mark.svg"
                   url="https://github.com/sponsors/zoomment"
