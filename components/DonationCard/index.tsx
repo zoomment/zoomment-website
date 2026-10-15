@@ -1,45 +1,31 @@
-'use client';
-import { Card, Button, theme } from 'antd';
-import Title from 'antd/es/typography/Title';
-import Paragraph from 'antd/es/typography/Paragraph';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ReactNode } from 'react';
+import styles from './DonationCard.module.css';
 
 export const DonationCard = ({
   name,
   children,
   logo,
   url,
+  tint = '',
 }: {
   name: string;
   children: ReactNode;
   logo: string;
   url: string;
+  tint?: string;
 }) => {
-  const {
-    token: { colorPrimaryBorder },
-  } = theme.useToken();
-
   return (
-    <Card>
-      <Image src={logo} width={100} height={100} alt={name} />
-      <Title
-        level={2}
-        style={{
-          marginTop: 13,
-          borderBottom: `4px solid ${colorPrimaryBorder}`,
-          display: 'inline-block',
-        }}
-      >
-        {name}
-      </Title>
-      <Paragraph>{children}</Paragraph>
-      <Link href={url} target="_blank">
-        <Button size="large" type="primary">
-          Donate on {name}
-        </Button>
+    <article className={`panel panel--plain ${tint} ${styles.card}`}>
+      <div className={styles.logo}>
+        <Image src={logo} width={64} height={64} alt="" />
+      </div>
+      <h2 className="display display--lg">{name}</h2>
+      <p className={styles.body}>{children}</p>
+      <Link href={url} target="_blank" rel="noopener" className="btn-pop">
+        Donate on {name}
       </Link>
-    </Card>
+    </article>
   );
 };

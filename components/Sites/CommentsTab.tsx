@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
-import { Flex, List, Skeleton, Empty, Divider, Spin } from "antd";
+import { Flex, List, Skeleton, Divider, Spin } from "antd";
 import { TComment } from "@/types";
 import { request } from "@/utils/request-client";
 import { Comment } from "./Comment";
@@ -113,7 +113,7 @@ export const CommentsTab = ({ siteId }: Props) => {
   if (comments.length === 0) {
     return (
       <Flex align="center" justify="center" style={{ height: "100%" }}>
-        <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No comments yet" />
+        <span className="balloon">No comments yet. The first one will land here.</span>
       </Flex>
     );
   }

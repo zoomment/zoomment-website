@@ -1,40 +1,30 @@
-'use client';
-import { Button, Flex } from 'antd';
-import { useRouter } from 'next/navigation';
-import { PlusCircleOutlined } from '@ant-design/icons';
-import Title from 'antd/es/typography/Title';
-import Text from 'antd/es/typography/Text';
+import Link from 'next/link';
 
 export default function AddFirstSite() {
-  const router = useRouter();
-
   return (
-    <Flex
-      align="center"
-      justify="center"
-      vertical
+    <div
       style={{
         position: 'absolute',
-        top: 0,
-        right: 0,
-        left: 0,
-        bottom: 0,
+        inset: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 28,
+        padding: 24,
         textAlign: 'center',
+        background: 'var(--dots-yellow), var(--sheet)',
       }}
     >
-      <Title level={4}>Manage Your Site Comments Here!</Title>
-      <Text style={{ marginBottom: 30, maxWidth: 400 }}>
-        Add your site to the dashboard and take control of your comments. Click
-        &quot;Add new site&quot; to get started.
-      </Text>
-      <Button
-        onClick={() => router.push('/dashboard/add')}
-        size="large"
-        type="primary"
-        icon={<PlusCircleOutlined />}
-      >
+      <span className="balloon" style={{ maxWidth: 380 }}>
+        Your first site goes here!
+      </span>
+      <p style={{ maxWidth: 420, fontSize: 17, lineHeight: 1.55, marginTop: 8 }}>
+        Add your site to the dashboard and take control of your comments.
+      </p>
+      <Link href="/dashboard/add" className="btn-pop">
         Add New Site
-      </Button>
-    </Flex>
+      </Link>
+    </div>
   );
 }

@@ -45,6 +45,7 @@ export const Comment = ({ comment, onDelete }: Props) => {
                 onClick: () => window.open(comment.pageUrl, "_blank"),
                 label: "Open page",
               },
+              { type: "divider" as const },
               {
                 key: "2",
                 danger: true,

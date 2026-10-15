@@ -15,7 +15,7 @@ export const SitesList = ({ sites, selectedSiteId, onSelectSite }: Props) => {
     <>
       <Menu
         onSelect={(info) => onSelectSite(info.key)}
-        style={{ width: "100%", height: "100%", paddingBottom: 60 }}
+        style={{ width: "100%", height: "100%", paddingBottom: 60, borderInlineEnd: "2px solid var(--ink)", background: "var(--paper)" }}
         selectedKeys={[selectedSiteId]}
         items={sites.map((item) => ({
           icon: <NumberOutlined />,

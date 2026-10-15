@@ -1,6 +1,6 @@
 "use client";
 import { Avatar, Dropdown, Flex, Skeleton, Button } from "antd";
-import Text from "antd/es/typography/Text";
+import styles from "./Profile.module.css";
 import { useRouter } from "next/navigation";
 import {
   UserOutlined,
@@ -16,7 +16,7 @@ export default function Profile() {
   const emailName = user && user.email.replace(/@.*/g, "");
 
   const menuItems = useMemo(() => {
-    const items = [
+    const items: any[] = [
       {
         key: "1",
         onClick: () => router.push("/dashboard"),
@@ -32,6 +32,7 @@ export default function Profile() {
         onClick: () => router.push("/dashboard/account"),
         label: "Account Settings",
       },
+      { type: "divider" },
       {
         key: "4",
         danger: true,
@@ -55,12 +56,8 @@ export default function Profile() {
   }, [user, logout, router]);
 
   return (
-    <div style={{ maxWidth: 300 }}>
-      {loading && (
-        <Flex style={{ width: 200 }} justify="end" gap={8}>
-          <Skeleton.Button active style={{ width: 100 }} />
-        </Flex>
-      )}
+    <div className={styles.profile}>
+      {loading && <Skeleton.Button active className={styles.skeleton} />}
       {!loading && user && (
         <Dropdown
           trigger={["click"]}
@@ -68,16 +65,20 @@ export default function Profile() {
             items: menuItems,
           }}
         >
-          <Flex gap={8} style={{ cursor: "pointer" }} align="center">
+          <button
+            type="button"
+            className={styles.trigger}
+            aria-label={`Account menu for ${user.name || emailName}`}
+          >
             <Avatar
-              style={{ flexShrink: 0 }}
-              size={28}
+              className={styles.avatar}
+              size={30}
               icon={<UserOutlined />}
               src={`https://www.gravatar.com/avatar/${user?.gravatar}?d=monsterid`}
             />
-            <Text ellipsis>{user.name || emailName}</Text>
-            <CaretDownOutlined />
-          </Flex>
+            <span className={styles.name}>{user.name || emailName}</span>
+            <CaretDownOutlined className={styles.caret} />
+          </button>
         </Dropdown>
       )}
       {!loading && !user && (

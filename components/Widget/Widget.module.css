@@ -1,0 +1,57 @@
+.widget {
+  margin-top: 32px;
+  width: 100%;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 8px 0 40px;
+}
+
+.reactions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.reactions span {
+  width: 56px;
+  height: 34px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--dots-ink), var(--sheet);
+  animation: breathe 1.4s ease-in-out infinite alternate;
+}
+.reactions span:nth-child(even) {
+  animation-delay: 200ms;
+}
+
+.blank {
+  width: min(100%, 620px);
+  max-width: none;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.caret {
+  width: 3px;
+  height: 30px;
+  background: var(--magenta);
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes breathe {
+  to {
+    opacity: 0.45;
+  }
+}

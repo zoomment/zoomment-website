@@ -1,18 +1,14 @@
 'use client';
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Button, Input, Form, theme } from 'antd';
-import Title from 'antd/es/typography/Title';
+import Link from 'next/link';
+import { Button, Input, Form } from 'antd';
 import { request } from '@/utils/request-client';
+import styles from './auth.module.css';
 
 const Auth: React.FC = () => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
 
   const onFinish = async (values: any) => {
     setLoading(true);
@@ -28,52 +24,49 @@ const Auth: React.FC = () => {
   };
 
   return (
-    <div
-      style={{
-        padding: '50px',
-        minHeight: 360,
-        maxWidth: 550,
-        width: '100%',
-        marginTop: 50,
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        background: colorBgContainer,
-        borderRadius: borderRadiusLG,
-      }}
-    >
-      {submitted ? (
-        <>
-          <Title>Check your inbox. </Title>
-          <p style={{ marginBottom: 30 }}>
-            Click the link we sent to {email} to sign in.
-          </p>
-          <Button size="large" type="primary" onClick={() => router.push('/')}>
-            Back to Home
-          </Button>
-        </>
-      ) : (
-        <>
-          <Title>Sign in with email</Title>
-          <p style={{ marginBottom: 30 }}>
-            Enter the email address and we’ll send a magic link to your inbox.
-          </p>
-          <Form size="large" onFinish={onFinish}>
-            <Form.Item
-              style={{ marginBottom: 40 }}
-              name={'email'}
-              rules={[
-                { required: true, message: 'Email is required!' },
-                { type: 'email', message: 'Email is not a valid!' },
-              ]}
-            >
-              <Input placeholder="Your email" />
-            </Form.Item>
-            <Button loading={loading} type="primary" htmlType="submit">
-              Continue
-            </Button>
-          </Form>
-        </>
-      )}
+    <div className={`container ${styles.wrap}`}>
+      <div className={`panel ${submitted ? 'panel--yellow' : ''} ${styles.card}`}>
+        <span className="caption">{submitted ? 'Sent!' : 'Sign in'}</span>
+        {submitted ? (
+          <>
+            <h1 className="display display--lg">Check your inbox</h1>
+            <p className={styles.lead}>
+              Click the link we sent to <strong>{email}</strong> to sign in.
+            </p>
+            <Link href="/" className="btn-pop btn-pop--ghost">
+              Back to Home
+            </Link>
+          </>
+        ) : (
+          <>
+            <h1 className="display display--lg">Sign in with email</h1>
+            <p className={styles.lead}>
+              Enter the email address and we’ll send a magic link to your
+              inbox. No password needed.
+            </p>
+            <Form size="large" onFinish={onFinish} layout="vertical" requiredMark={false}>
+              <Form.Item
+                label="Email"
+                name={'email'}
+                rules={[
+                  { required: true, message: 'Enter your email address.' },
+                  { type: 'email', message: 'That doesn’t look like an email address.' },
+                ]}
+              >
+                <Input placeholder="you@yourblog.dev" autoComplete="email" />
+              </Form.Item>
+              <Button
+                loading={loading}
+                type="primary"
+                htmlType="submit"
+                className={styles.submit}
+              >
+                Send magic link
+              </Button>
+            </Form>
+          </>
+        )}
+      </div>
     </div>
   );
 };

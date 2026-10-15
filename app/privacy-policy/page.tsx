@@ -4,16 +4,9 @@ import Paragraph from "antd/es/typography/Paragraph";
 
 const PrivacyPolicy = () => {
   return (
-    <div
-      style={{
-        margin: "0 auto",
-        maxWidth: 1000,
-        padding: "40px 0",
-        width: "100%",
-      }}
-    >
-      <Typography>
-        <div style={{ padding: "0 20px", width: "100%" }}>
+    <div className="container page">
+      <Typography className="prose">
+        <div>
           <div>
             <Title level={1}>Privacy Policy</Title>
 

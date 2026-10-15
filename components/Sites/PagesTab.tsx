@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Flex, Empty, List, Skeleton, Divider, Tooltip } from "antd";
+import { Flex, List, Skeleton, Divider, Tooltip } from "antd";
 import { EyeOutlined } from "@ant-design/icons";
 import { request } from "@/utils/request-client";
 
@@ -48,10 +48,7 @@ export const PagesTab = ({ domain }: Props) => {
   if (pages.length === 0) {
     return (
       <Flex align="center" justify="center" style={{ height: "100%" }}>
-        <Empty
-          image={Empty.PRESENTED_IMAGE_SIMPLE}
-          description="No page views yet"
-        />
+        <span className="balloon">No page views yet. Visits show up here.</span>
       </Flex>
     );
   }
@@ -87,7 +84,7 @@ export const PagesTab = ({ domain }: Props) => {
             <Flex
               align="center"
               gap={6}
-              style={{ color: "#666", flexShrink: 0, paddingRight: 16 }}
+              style={{ color: "var(--ink-soft)", flexShrink: 0, paddingRight: 16, fontVariantNumeric: "tabular-nums" }}
             >
               <EyeOutlined />
               <span style={{ fontWeight: 500 }}>

@@ -1,43 +1,27 @@
-'use client';
 import React from 'react';
-import { Breadcrumb, theme } from 'antd';
 import Link from 'next/link';
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
-
   return (
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 1000,
-        width: '100%',
-      }}
-    >
-      <div style={{ padding: '0 20px', width: '100%' }}>
-        <Breadcrumb
-          items={[
-            {
-              key: '1',
-              title: <Link href="/dashboard">Dashboard</Link>,
-            },
-          ]}
-          style={{ margin: '16px 0' }}
-        ></Breadcrumb>
-        <div
-          style={{
-            width: '100%',
-            position: 'relative',
-            overflow: 'hidden',
-            minHeight: 'calc(100vh - 250px)',
-            background: colorBgContainer,
-            borderRadius: borderRadiusLG,
-          }}
+    <div className="container" style={{ paddingTop: 20, paddingBottom: 40 }}>
+      <nav aria-label="Breadcrumb" style={{ margin: '0 0 14px' }}>
+        <Link
+          href="/dashboard"
+          className="caption caption--inline"
+          style={{ textDecoration: 'none', fontSize: 13, borderWidth: 3 }}
         >
-          {children}
-        </div>
+          Dashboard
+        </Link>
+      </nav>
+      <div
+        className="panel panel--plain"
+        style={{
+          padding: 0,
+          overflow: 'hidden',
+          minHeight: 'calc(100vh - 250px)',
+        }}
+      >
+        {children}
       </div>
     </div>
   );

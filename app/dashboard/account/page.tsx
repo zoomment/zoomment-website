@@ -26,7 +26,7 @@ const Account: React.FC = () => {
   };
 
   return (
-    <div style={{ padding: 24 }}>
+    <div style={{ padding: 32 }}>
       <Title level={4}>Account settings</Title>
       <Paragraph style={{ maxWidth: 500 }}>
         Deleting your account will permanently erase all data. If you have

@@ -1,8 +1,6 @@
-import { Row, Col, Typography } from 'antd';
 import { Metadata } from 'next';
-import Title from 'antd/es/typography/Title';
-import Paragraph from 'antd/es/typography/Paragraph';
 import { DonationCard } from '@/components/DonationCard';
+import styles from './donate.module.css';
 
 export const metadata: Metadata = {
   title: 'Support Zoomment: Donate to Drive Engagement & Innovation',
@@ -12,65 +10,39 @@ export const metadata: Metadata = {
 
 const Donate = () => {
   return (
-    <div
-      style={{
-        backgroundImage:
-          'linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%)',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: '100% 280px',
-      }}
-    >
-      <div
-        style={{
-          margin: '0 auto',
-          maxWidth: 1000,
-          width: '100%',
-        }}
-      >
-        <div style={{ padding: '40px 20px', width: '100%' }}>
-          <Typography>
-            <div>
-              <Title level={1} style={{ marginBottom: 10 }}>
-                Donate today
-              </Title>
-              <Paragraph
-                style={{ marginBottom: 30, fontSize: '16px', maxWidth: 600 }}
-              >
-                Every contribution fuels our platform&apos;s evolution and
-                upkeep. Consistent support enables us to strategize for the
-                future.
-              </Paragraph>
-            </div>
+    <div className="container page">
+      <header className="page-head">
+        <h1 className="display display--xl">
+          Donate <mark>today</mark>
+        </h1>
+        <p>
+          Every contribution fuels our platform&apos;s evolution and upkeep.
+          Consistent support enables us to strategize for the future.
+        </p>
+      </header>
 
-            <Row gutter={[28, 28]}>
-              <Col md={12}>
-                <DonationCard
-                  name="Github"
-                  logo="../github-mark.svg"
-                  url="https://github.com/sponsors/zoomment"
-                >
-                  Become a Sponsor on GitHub! Your sponsorship directly
-                  contributes to the development and improvement of Zoomment.
-                  Help us continue building this open-source platform for
-                  vibrant web interactions.
-                </DonationCard>
-              </Col>
-              <Col md={12}>
-                <DonationCard
-                  name="Open Collective"
-                  logo="../opencollective-icon.svg"
-                  url="https://opencollective.com/zoomment"
-                >
-                  Your contributions on Open Collective directly fuel
-                  Zoomment&apos;s development, helping us enhance features,
-                  bolster security, and support our open-source community. Every
-                  donation, big or small, empowers us to keep Zoomment free,
-                  innovative, and user-centric.
-                </DonationCard>
-              </Col>
-            </Row>
-          </Typography>
-        </div>
+      <div className={styles.grid}>
+        <DonationCard
+          name="GitHub"
+          logo="/github-mark.svg"
+          url="https://github.com/sponsors/zoomment"
+          tint="panel--yellow"
+        >
+          Become a Sponsor on GitHub! Your sponsorship directly contributes to
+          the development and improvement of Zoomment. Help us continue
+          building this open-source platform for vibrant web interactions.
+        </DonationCard>
+        <DonationCard
+          name="Open Collective"
+          logo="/opencollective-icon.svg"
+          url="https://opencollective.com/zoomment"
+          tint="panel--cyan"
+        >
+          Your contributions on Open Collective directly fuel Zoomment&apos;s
+          development, helping us enhance features, bolster security, and
+          support our open-source community. Every donation, big or small,
+          empowers us to keep Zoomment free, innovative, and user-centric.
+        </DonationCard>
       </div>
     </div>
   );

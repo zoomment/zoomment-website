@@ -1,0 +1,30 @@
+.wrap {
+  position: relative;
+}
+
+.corner {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.actions {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.sfx {
+  font-size: 54px;
+  animation: sfx-burst 460ms var(--ease-out) both;
+}

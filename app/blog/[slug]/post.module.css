@@ -1,0 +1,36 @@
+.post {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.back {
+  display: inline-block;
+  font-weight: 700;
+  margin-bottom: 28px;
+  text-decoration: none;
+}
+
+.title {
+  font-size: clamp(32px, 4.4vw, 52px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  margin-bottom: 20px;
+}
+
+.date {
+  display: inline-block;
+  background: var(--yellow);
+  border: 3px solid var(--ink);
+  padding: 6px 12px 5px;
+  font-family: var(--font-display), sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.comments {
+  margin-top: 64px;
+  padding-top: 56px;
+}

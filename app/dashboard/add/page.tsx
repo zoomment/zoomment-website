@@ -35,7 +35,7 @@ const Add: React.FC = () => {
   };
 
   return (
-    <div style={{ padding: 24 }}>
+    <div style={{ padding: 32, maxWidth: 820 }}>
       <Title level={4} style={{ marginBottom: 5 }}>
         Step 1. Insert Code
       </Title>
@@ -52,7 +52,10 @@ const Add: React.FC = () => {
         before the {`</head>`} tag in your HTML.
       </Paragraph>
       {user ? (
-        <CodeBox>{`<meta name="zoomment" content="${user.id}" />`}</CodeBox>
+        <CodeBox
+          copyText={`<meta name="zoomment" content="${user.id}" />`}
+          copyLabel="Copy meta tag"
+        >{`<meta name="zoomment" content="${user.id}" />`}</CodeBox>
       ) : (
         <Skeleton active title={{ style: { height: 46 } }} paragraph={false} />
       )}

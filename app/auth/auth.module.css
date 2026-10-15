@@ -1,0 +1,43 @@
+.wrap {
+  padding-top: 64px;
+  padding-bottom: 96px;
+}
+
+.card {
+  max-width: 560px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 84px 40px 40px;
+}
+.card form {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.lead {
+  font-size: 17px;
+  line-height: 1.55;
+  max-width: 42ch;
+}
+
+.submit span {
+  font-family: var(--font-display), sans-serif;
+}
+.submit {
+  height: 52px !important;
+  padding: 0 28px !important;
+  border: var(--border) !important;
+  font-family: var(--font-display), sans-serif;
+  font-size: 17px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+  .card {
+    padding: 72px 20px 24px;
+  }
+}

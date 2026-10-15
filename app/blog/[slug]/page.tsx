@@ -1,12 +1,11 @@
 import { getAllPosts, getPostBySlug } from "@/utils/blogApi";
 import { Metadata } from "next";
-import Title from "antd/es/typography/Title";
-import Paragraph from "antd/es/typography/Paragraph";
-import { Typography } from "antd";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import markdownToHtml from "@/utils/markdownToHtml";
 import { Widget } from "@/components/Widget";
 import dayjs from "dayjs";
+import styles from "./post.module.css";
 
 type Params = {
   params: {
@@ -49,19 +48,19 @@ export default async function Post({ params }: Params) {
   const content = await markdownToHtml(post.content || "");
 
   return (
-    <>
-      <Typography>
-        {/* {post.preview} */}
-        <Title level={1}>{post.title}</Title>
-        {/* {post.coverImage} */}
-        <Paragraph style={{ fontSize: 20 }}>
-          {dayjs(post.date).format("DD MMM YYYY")}
-        </Paragraph>
-        <Paragraph>
-          <div dangerouslySetInnerHTML={{ __html: content }} />
-        </Paragraph>
-      </Typography>
-      <Widget />
-    </>
+    <article className={styles.post}>
+      <Link href="/blog" className={styles.back}>
+        ← All posts
+      </Link>
+      <h1 className={styles.title}>{post.title}</h1>
+      <time className={styles.date} dateTime={post.date}>
+        {dayjs(post.date).format("DD MMM YYYY")}
+      </time>
+      <div className="prose" dangerouslySetInnerHTML={{ __html: content }} />
+      <section className={`panel ${styles.comments}`} aria-label="Comments">
+        <span className="caption">Talk back</span>
+        <Widget />
+      </section>
+    </article>
   );
 }

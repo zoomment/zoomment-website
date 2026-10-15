@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-15T00:00:00Z",
+  "title": "Design System: Zoomment",
+  "extensions": {
+    "colorMeta": {
+      "interactive-blue": { "role": "primary", "displayName": "Workbench Blue", "tonalRamp": ["#002c8c", "#003eb3", "#0958d9", "#1677ff", "#4096ff", "#69b1ff", "#91caff", "#e6f4ff"] },
+      "brand-cyan": { "role": "secondary", "displayName": "Speech-Bubble Cyan", "tonalRamp": ["#003a52", "#005a80", "#0079ad", "#0097DF", "#00B3FF", "#5ccbff", "#a3e0ff", "#e5f6ff"] },
+      "beta-violet": { "role": "tertiary", "displayName": "Beta Violet", "tonalRamp": ["#120338", "#22075e", "#391085", "#531dab", "#722ed1", "#b37feb", "#d3adf7", "#f9f0ff"] },
+      "danger-red": { "role": "error", "displayName": "Danger Red", "tonalRamp": ["#5c0011", "#820014", "#a8071a", "#cf1322", "#ff4d4f", "#ff7875", "#ffa39e", "#fff1f0"] },
+      "ink": { "role": "neutral", "displayName": "Ink" },
+      "ink-muted": { "role": "neutral", "displayName": "Muted Ink" },
+      "workbench-grey": { "role": "neutral", "displayName": "Workbench Grey", "tonalRamp": ["#141414", "#262626", "#434343", "#8c8c8c", "#bfbfbf", "#d9d9d9", "#f0f0f0", "#f5f5f5"] },
+      "paper-white": { "role": "neutral", "displayName": "Paper White" },
+      "hairline": { "role": "neutral", "displayName": "Hairline" },
+      "hairline-soft": { "role": "neutral", "displayName": "Soft Hairline" },
+      "slate-code": { "role": "neutral", "displayName": "Slate Code", "tonalRamp": ["#111827", "#1f2937", "#374151", "#4b5563", "#6b7280", "#9ca3af", "#d1d5db", "#f3f4f6"] },
+      "dawn-blue": { "role": "neutral", "displayName": "Dawn Wash (blue end)" },
+      "dawn-rose": { "role": "neutral", "displayName": "Dawn Wash (rose end)" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Page titles, wordmark, blog post titles." },
+      "headline": { "displayName": "Headline", "purpose": "Donation card names." },
+      "title": { "displayName": "Title", "purpose": "Benefit card headings, dashboard empty states." },
+      "subtitle": { "displayName": "Subtitle", "purpose": "Footer column headings, homepage tagline (muted)." },
+      "body": { "displayName": "Body", "purpose": "All UI text and paragraphs; 600px reading max." },
+      "body-lead": { "displayName": "Body Lead", "purpose": "Intro paragraphs under page titles." },
+      "label": { "displayName": "Label", "purpose": "Tags, metadata, dates." },
+      "code": { "displayName": "Code", "purpose": "The embed snippet." }
+    },
+    "shadows": [
+      { "name": "header-lift", "value": "0 1px 2px 0 rgba(0,0,0,0.03), 0 1px 6px -1px rgba(0,0,0,0.02), 0 2px 4px 0 rgba(0,0,0,0.02)", "purpose": "Sticky header only." }
+    ],
+    "motion": [
+      { "name": "antd-default", "value": "all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1)", "purpose": "antd's standard state transition on buttons and inputs." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" },
+      { "name": "container", "value": "1000px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The main action on any surface: Login, Continue, Add New Site, Donate.",
+      "html": "<button class=\"ds-btn-primary\">Continue</button>",
+      "css": ".ds-btn-primary { font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; height: 32px; padding: 4px 15px; border-radius: 6px; border: none; background: #1677ff; color: #fff; box-shadow: 0 2px 0 rgba(5,145,255,0.1); cursor: pointer; transition: all 0.2s cubic-bezier(0.645,0.045,0.355,1); } .ds-btn-primary:hover { background: #4096ff; } .ds-btn-primary:active { background: #0958d9; } .ds-btn-primary:focus-visible { outline: 3px solid #91caff; outline-offset: 1px; }"
+    },
+    {
+      "name": "Large Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary-large",
+      "description": "Primary CTA on empty states, auth and donation cards.",
+      "html": "<button class=\"ds-btn-primary-lg\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 8v8M8 12h8\"/></svg>Add New Site</button>",
+      "css": ".ds-btn-primary-lg { display: inline-flex; align-items: center; gap: 8px; font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; height: 40px; padding: 7px 15px; border-radius: 8px; border: none; background: #1677ff; color: #fff; cursor: pointer; transition: all 0.2s cubic-bezier(0.645,0.045,0.355,1); } .ds-btn-primary-lg:hover { background: #4096ff; } .ds-btn-primary-lg:active { background: #0958d9; } .ds-btn-primary-lg:focus-visible { outline: 3px solid #91caff; outline-offset: 1px; }"
+    },
+    {
+      "name": "Email Input",
+      "kind": "input",
+      "refersTo": "input-large",
+      "description": "Large antd input used on the magic-link sign-in form.",
+      "html": "<input class=\"ds-input\" type=\"email\" placeholder=\"Your email\" />",
+      "css": ".ds-input { font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; height: 40px; padding: 7px 11px; width: 320px; border: 1px solid #d9d9d9; border-radius: 8px; background: #fff; color: rgba(0,0,0,0.88); transition: all 0.2s; } .ds-input::placeholder { color: rgba(0,0,0,0.25); } .ds-input:hover { border-color: #4096ff; } .ds-input:focus, .ds-input:focus-visible { outline: none; border-color: #1677ff; box-shadow: 0 0 0 2px rgba(5,145,255,0.1); }"
+    },
+    {
+      "name": "Header Bar",
+      "kind": "nav",
+      "refersTo": "header-bar",
+      "description": "Sticky 50px white bar: logo left, profile or Login right.",
+      "html": "<header class=\"ds-header\"><div class=\"ds-header-inner\"><svg width=\"35\" height=\"30\" viewBox=\"0 0 37 32\"><defs><linearGradient id=\"dsg\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop stop-color=\"#00B3FF\"/><stop offset=\"1\" stop-color=\"#0097DF\"/></linearGradient></defs><path d=\"M18.18 0C8.17 0 0 6.63 0 14.76c0 4.53 2.61 8.86 6.97 11.64l-1.54 3.2c-.3.6-.17 1.33.26 1.84.34.35.77.56 1.24.56.17 0 .38-.04.56-.09l7.4-2.65c1.07.17 2.18.26 3.29.26 10.01 0 18.18-6.63 18.18-14.76S28.19 0 18.18 0Z\" fill=\"url(#dsg)\"/><circle cx=\"17.75\" cy=\"13.43\" r=\"2.5\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2.5\"/><circle cx=\"25.97\" cy=\"13.43\" r=\"2.5\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2.5\"/></svg><button class=\"ds-header-login\">Login</button></div></header>",
+      "css": ".ds-header { height: 50px; display: flex; align-items: center; justify-content: center; background: #fff; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.03), 0 1px 6px -1px rgba(0,0,0,0.02), 0 2px 4px 0 rgba(0,0,0,0.02); } .ds-header-inner { max-width: 1000px; width: 100%; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; } .ds-header-login { font-family: Roboto, sans-serif; font-size: 14px; height: 32px; padding: 4px 15px; border-radius: 6px; border: none; background: #1677ff; color: #fff; cursor: pointer; } .ds-header-login:hover { background: #4096ff; } .ds-header-login:focus-visible { outline: 3px solid #91caff; outline-offset: 1px; }"
+    },
+    {
+      "name": "Beta Tag",
+      "kind": "chip",
+      "refersTo": "tag-beta",
+      "description": "Product-status badge beside the wordmark.",
+      "html": "<span class=\"ds-wordmark\">Zoomment <span class=\"ds-tag-beta\">Beta</span></span>",
+      "css": ".ds-wordmark { display: inline-flex; align-items: center; gap: 8px; font-family: Roboto, sans-serif; font-size: 38px; font-weight: 600; line-height: 1.21; color: rgba(0,0,0,0.88); } .ds-tag-beta { font-size: 12px; font-weight: 400; line-height: 20px; padding: 0 7px; border-radius: 4px; color: #531dab; background: #f9f0ff; border: 1px solid #d3adf7; }"
+    },
+    {
+      "name": "Benefit Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Paper-white card with emoji-led title; two-up grid at md.",
+      "html": "<article class=\"ds-card\"><h4 class=\"ds-card-title\">🔔 Notifications</h4><p class=\"ds-card-body\">Stay updated with email notifications whenever a new comment is posted.</p></article>",
+      "css": ".ds-card { max-width: 460px; background: #fff; border: 1px solid #f0f0f0; border-radius: 8px; padding: 24px; font-family: Roboto, sans-serif; } .ds-card-title { margin: 0 0 8px; font-size: 20px; font-weight: 600; line-height: 1.4; color: rgba(0,0,0,0.88); } .ds-card-body { margin: 0; font-size: 14px; line-height: 1.5714; color: rgba(0,0,0,0.88); }"
+    },
+    {
+      "name": "Embed Snippet",
+      "kind": "custom",
+      "refersTo": "code-block",
+      "description": "Signature dark code block with the embed and a settings cog linking to the config guide.",
+      "html": "<pre class=\"ds-code\"><a class=\"ds-code-cog\" href=\"#\" aria-label=\"Widget configuration\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z\"/></svg></a>&lt;div\n  id=\"zoomment\"\n  data-theme=\"light\"\n  data-language=\"en\"\n  data-gravatar=\"monsterid\"\n  data-emotions=\"❤️,😀,🪄,🥸,💡,🤔,💩,😢\"\n  data-visitors=\"true\"\n&gt;&lt;/div&gt;\n&lt;script src=\"https://cdn.zoomment.com/zoomment.min.js\"&gt;&lt;/script&gt;</pre>",
+      "css": ".ds-code { position: relative; margin: 0; max-width: 600px; background: #1f2937; color: #fff; padding: 12px 16px; font-size: 13px; line-height: 1.5714; border-radius: 6px; font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace; white-space: pre; overflow-x: auto; } .ds-code-cog { position: absolute; top: 16px; right: 14px; color: #fff; opacity: 0.85; transition: opacity 0.2s; } .ds-code-cog:hover { opacity: 1; } .ds-code-cog:focus-visible { outline: 2px solid #91caff; outline-offset: 2px; border-radius: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quiet Workbench",
+    "overview": "Zoomment's site is a tidy bench with one thing on it: the comment widget. The homepage puts a dark snippet and the real, working widget in the middle of a light page, and everything else (header, footer, cards) stays plain so the product does the talking. The system is calm, honest, practical and friendly: it shows the real thing instead of describing it, and it never dresses up with proof or polish it hasn't earned.\n\nThe base is stock Ant Design 6, used with restraint: default tokens, no theme overrides, white surfaces on a light grey workbench, a single interactive blue. The friendliness comes from small human touches rather than decoration: emoji in headings and reactions, monster-style gravatars, a violet \"Beta\" tag, and a soft dawn-coloured wash behind the donate page. Density is medium on marketing and reading pages (narrow columns, generous vertical space) and standard antd density in the dashboard.\n\nZoomment should never resemble an ad-heavy comment widget (sponsored rows, heavy chrome), a glossy SaaS hero (gradient blobs, glassmorphism, oversized marketing imagery), or dev-terminal cosplay (all-dark, neon on black). The single dark element, the code block, is a tool, not a theme.",
+    "keyCharacteristics": [
+      "The live widget and the embed snippet are the hero; chrome recedes.",
+      "Stock antd tokens, refined through precise spacing and type, never loud.",
+      "One interactive blue; the brand cyan lives in the logo.",
+      "Friendliness through emoji, gravatars and the occasional pastel wash, not illustration.",
+      "Narrow, centred columns: 600px for focus pages, 1000px for everything else."
+    ],
+    "rules": [
+      { "name": "The One Working Blue Rule", "body": "Everything interactive is Workbench Blue. Speech-Bubble Cyan is the logo's, and it never fills a button or link.", "section": "colors" },
+      { "name": "The Status-Only Violet Rule", "body": "Beta Violet labels product status. It is never decoration, an accent or a hover state.", "section": "colors" },
+      { "name": "The Danger Is a Menu Item Rule", "body": "Destructive actions (delete site, delete comment, log out) appear as danger-red items inside dropdown menus, not as red buttons on the page.", "section": "colors" },
+      { "name": "The One Family Rule", "body": "Roboto everywhere except code. Don't add a display face for flavour.", "section": "typography" },
+      { "name": "The Weight Gap Note", "body": "antd headings render at weight 600, but only Roboto 400 and 500 are loaded. Treat the rendered heading weight as unverified, and either load 600 or set the heading weight to 500 before adding new heading styles.", "section": "typography" },
+      { "name": "The Paper-on-Bench Rule", "body": "Separate surfaces with Paper White on Workbench Grey and a hairline. Reserve shadows for things that float: the sticky header and popovers.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do let the snippet and the live widget lead every surface that sells the product, and show the real thing instead of mockups.",
+      "Do use Workbench Blue for every interactive element, and keep Speech-Bubble Cyan in the logo.",
+      "Do keep content in centred columns: 600px for focus pages, 1000px for standard pages.",
+      "Do separate surfaces with Paper White on Workbench Grey, a hairline, and 8px corners.",
+      "Do use emoji, monster gravatars and the soft Dawn Wash as the friendly touches.",
+      "Do put destructive actions in dropdown menus as danger items."
+    ],
+    "donts": [
+      "Don't add ad-like or sponsored-looking rows, heavy borders, or crowded chrome around comments.",
+      "Don't use glossy SaaS hero tropes: gradient blobs, glassmorphism, or oversized marketing imagery.",
+      "Don't go all-dark or neon on black. Slate Code is the only dark surface, and only for code.",
+      "Don't use Beta Violet for anything except product status.",
+      "Don't add a second typeface outside code.",
+      "Don't show user counts, testimonials or customer logos. None exist (see PRODUCT.md)."
+    ]
+  }
+}

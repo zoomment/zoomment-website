@@ -1,0 +1,61 @@
+.profile {
+  display: flex;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.skeleton {
+  width: 96px !important;
+  min-width: 0 !important;
+  border-radius: 999px !important;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 240px;
+  padding: 3px 12px 3px 3px;
+  background: var(--sheet);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 160ms var(--ease-out);
+}
+.trigger:hover,
+.trigger[aria-expanded='true'] {
+  background: var(--yellow);
+}
+
+.avatar {
+  flex-shrink: 0;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+}
+
+.name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.caret {
+  flex-shrink: 0;
+  font-size: 11px;
+}
+
+/* Phones: avatar + caret only; the name stays in the accessible label */
+@media (max-width: 480px) {
+  .trigger {
+    padding-right: 9px;
+    gap: 6px;
+  }
+  .name {
+    display: none;
+  }
+}

@@ -1,11 +1,8 @@
 import { getAllPosts } from '@/utils/blogApi';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Title from 'antd/es/typography/Title';
-import Paragraph from 'antd/es/typography/Paragraph';
-import { Typography } from 'antd';
-import { CalendarOutlined } from '@ant-design/icons';
 import dayjs from 'dayjs';
+import styles from './blog.module.css';
 
 export const metadata: Metadata = {
   title:
@@ -18,31 +15,29 @@ export default async function Blog() {
   const posts = getAllPosts();
 
   return (
-    <div>
-      <Title level={1} style={{ marginBottom: 10 }}>
-        Blog
-      </Title>
-      <Typography style={{ marginBottom: 30, fontSize: '16px', maxWidth: 600 }}>
-        Explore the Zoomment blog for tips and stories on boosting website
-        engagement with interactive comments.
-      </Typography>
-      {posts.map((post) => (
-        <Typography key={post.slug} style={{ marginBottom: 35 }}>
-          {/* {post.preview} */}
-          <Link
-            as={`/blog/${post.slug}`}
-            href="/blog/[slug]"
-            style={{ textDecoration: 'underline' }}
-          >
-            <Title level={4}>{post.title}</Title>
-          </Link>
-          {/* {post.coverImage} */}
-          <Paragraph>
-            <CalendarOutlined /> {dayjs(post.date).format('DD MMM YYYY')}
-          </Paragraph>
-          <Paragraph>{post.excerpt}</Paragraph>
-        </Typography>
-      ))}
-    </div>
+    <>
+      <header className="page-head">
+        <h1 className="display display--xl">Blog</h1>
+        <p>
+          Explore the Zoomment blog for tips and stories on boosting website
+          engagement with interactive comments.
+        </p>
+      </header>
+      <ol className={styles.list}>
+        {posts.map((post) => (
+          <li key={post.slug} className={styles.item}>
+            <time className={styles.date} dateTime={post.date}>
+              {dayjs(post.date).format('DD MMM YYYY')}
+            </time>
+            <div>
+              <h2 className={styles.title}>
+                <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+              </h2>
+              <p className={styles.excerpt}>{post.excerpt}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </>
   );
 }

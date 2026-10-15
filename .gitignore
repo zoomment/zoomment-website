@@ -35,3 +35,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 /.env
+
+# impeccable: local config and session artifacts
+.impeccable/config.local.json
+.impeccable/review/
+.impeccable/questions/
+.impeccable/mocks/

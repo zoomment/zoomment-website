@@ -1,0 +1,14 @@
+.options {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: #f4f1ea;
+  transition: background-color 160ms var(--ease-out), transform 300ms var(--ease-out);
+}
+.options:hover {
+  color: var(--ink);
+  background: var(--yellow);
+  transform: rotate(60deg);
+}

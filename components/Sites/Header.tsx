@@ -14,7 +14,7 @@ type Props = {
 export const Header = ({ site, onDelete }: Props) => {
   const [loading, setLoading] = useState(false);
   const {
-    token: { colorBgContainer, boxShadowTertiary },
+    token: { colorBgContainer },
   } = theme.useToken();
 
   const siteId = site._id;
@@ -42,10 +42,10 @@ export const Header = ({ site, onDelete }: Props) => {
         height: 50,
         zIndex: 80,
         backgroundColor: colorBgContainer,
-        boxShadow: boxShadowTertiary,
+        borderBottom: "2px solid var(--ink)",
       }}
     >
-      <Title level={4} style={{ margin: 0 }}>
+      <Title level={4} style={{ margin: 0, fontFamily: "var(--font-display)", fontWeight: 400, textTransform: "uppercase", fontSize: 18 }}>
         {site.domain}
       </Title>
       <Dropdown
@@ -58,6 +58,7 @@ export const Header = ({ site, onDelete }: Props) => {
               onClick: () => window.open(`/rss/${site.domain}`, "_blank"),
               label: "Get RSS feed",
             },
+            { type: "divider" as const },
             {
               key: "4",
               danger: true,

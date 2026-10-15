@@ -1,7 +1,7 @@
 "use client";
 
-import { Skeleton, Flex } from "antd";
 import { useLayoutEffect } from "react";
+import styles from "./Widget.module.css";
 
 export const Widget = () => {
   useLayoutEffect(() => {
@@ -15,7 +15,7 @@ export const Widget = () => {
   });
 
   return (
-    <div style={{ marginTop: 40, width: "100%" }}>
+    <div className={styles.widget}>
       <div
         id="zoomment"
         data-theme="light"
@@ -24,23 +24,16 @@ export const Widget = () => {
         data-emotions="❤️,😀,🪄,🥸,💡,🤔,💩,😢"
         data-visitors="true"
       >
-        <Flex
-          gap={8}
-          align="center"
-          justify="center"
-          style={{ paddingTop: 10 }}
-        >
-          <Skeleton.Button active />
-          <Skeleton.Button active />
-          <Skeleton.Button active />
-          <Skeleton.Button active />
-          <Skeleton.Button active />
-        </Flex>
-        <Skeleton.Input
-          block
-          style={{ height: 100, marginTop: 25, marginBottom: 25 }}
-          active
-        />
+        <div className={styles.loading} aria-label="Loading comments">
+          <div className={styles.reactions}>
+            {Array.from({ length: 6 }).map((_, i) => (
+              <span key={i} />
+            ))}
+          </div>
+          <div className={`balloon ${styles.blank}`}>
+            <span className={styles.caret} />
+          </div>
+        </div>
       </div>
     </div>
   );
