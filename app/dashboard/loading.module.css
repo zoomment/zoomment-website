@@ -1,0 +1,80 @@
+.shell {
+  display: grid;
+  grid-template-columns: 25% 1fr;
+  min-height: calc(100vh - 250px);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  background: var(--paper);
+  border-inline-end: 2px solid var(--ink);
+}
+
+.item,
+.bar,
+.avatar,
+.lines span {
+  display: block;
+  background: var(--dots-ink), #ece5d3;
+  border-radius: 4px;
+  animation: breathe 1.2s ease-in-out infinite alternate;
+}
+
+.item {
+  height: 36px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 14px 20px;
+}
+
+.bar {
+  height: 22px;
+  width: 40%;
+  margin-bottom: 10px;
+}
+
+.row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.lines {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.lines span {
+  height: 12px;
+  width: 30%;
+}
+.lines span + span {
+  width: 75%;
+}
+
+@keyframes breathe {
+  to {
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 760px) {
+  .shell {
+    grid-template-columns: 40% 1fr;
+  }
+}

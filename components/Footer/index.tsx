@@ -5,15 +5,14 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.grid}`}>
-        <div className={`panel panel--ink ${styles.end}`}>
-          <span className="caption">The end?</span>
+        <div className={`panel panel--plain panel--ink ${styles.end}`}>
           <p className={`display display--md ${styles.endLine}`}>
             Every post deserves a reply.
           </p>
           <p className={styles.endNote}>
             Zoomment is free, open source and paid for by donations, not ads.
           </p>
-          <Link href="/donate" className="btn-pop btn-pop--sm">
+          <Link href="/donate" className="btn-pop btn-pop--ghost btn-pop--sm">
             Chip in
           </Link>
         </div>

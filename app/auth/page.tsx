@@ -25,8 +25,7 @@ const Auth: React.FC = () => {
 
   return (
     <div className={`container ${styles.wrap}`}>
-      <div className={`panel ${submitted ? 'panel--yellow' : ''} ${styles.card}`}>
-        <span className="caption">{submitted ? 'Sent!' : 'Sign in'}</span>
+      <div className={`panel panel--plain ${submitted ? 'panel--yellow' : ''} ${styles.card}`}>
         {submitted ? (
           <>
             <h1 className="display display--lg">Check your inbox</h1>

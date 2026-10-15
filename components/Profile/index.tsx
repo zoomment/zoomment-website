@@ -1,97 +1,63 @@
 "use client";
-import { Avatar, Dropdown, Flex, Skeleton, Button } from "antd";
-import styles from "./Profile.module.css";
-import { useRouter } from "next/navigation";
-import {
-  UserOutlined,
-  CaretDownOutlined,
-  LoginOutlined,
-} from "@ant-design/icons";
+import Link from "next/link";
+import dynamic from "next/dynamic";
 import { useAuth } from "@/contexts/AuthContext";
-import { useMemo } from "react";
+import type { ProfileUser } from "./types";
+import styles from "./Profile.module.css";
+
+// Avatar, name and caret; shared by the placeholder and the real menu button.
+function TriggerFace({ user }: { user: ProfileUser }) {
+  return (
+    <>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className={styles.avatar} src={user.avatar} alt="" width={30} height={30} />
+      <span className={styles.name}>{user.name}</span>
+      <svg className={styles.caret} width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
+        <path d="M1 3l4 4 4-4" fill="currentColor" />
+      </svg>
+    </>
+  );
+}
+
+// antd's Dropdown only loads for signed-in visitors; the skeleton pill holds
+// the slot until it arrives.
+const AccountMenu = dynamic(() => import("./AccountMenu"), {
+  ssr: false,
+  loading: () => <span className={styles.skeleton} aria-hidden="true" />,
+});
 
 export default function Profile() {
-  const router = useRouter();
   const { user, loading, logout } = useAuth();
-  const emailName = user && user.email.replace(/@.*/g, "");
 
-  const menuItems = useMemo(() => {
-    const items: any[] = [
-      {
-        key: "1",
-        onClick: () => router.push("/dashboard"),
-        label: "Dashboard",
-      },
-      {
-        key: "2",
-        onClick: () => router.push("/donate"),
-        label: "Donate",
-      },
-      {
-        key: "3",
-        onClick: () => router.push("/dashboard/account"),
-        label: "Account Settings",
-      },
-      { type: "divider" },
-      {
-        key: "4",
-        danger: true,
-        onClick: () => {
-          logout();
-          router.push("/");
-        },
-        label: "Logout",
-      },
-    ];
+  if (loading) {
+    return (
+      <div className={styles.profile}>
+        <span className={styles.skeleton} aria-hidden="true" />
+      </div>
+    );
+  }
 
-    if (user?.role === 2) {
-      items.splice(3, 0, {
-        key: "5",
-        onClick: () => router.push("/dashboard/admin"),
-        label: "Admin",
-      });
-    }
+  if (!user) {
+    return (
+      <div className={styles.profile}>
+        <Link href="/auth" className={styles.login}>
+          Login
+        </Link>
+      </div>
+    );
+  }
 
-    return items;
-  }, [user, logout, router]);
+  const profileUser: ProfileUser = {
+    name: user.name || user.email.replace(/@.*/g, ""),
+    avatar: `https://www.gravatar.com/avatar/${user.gravatar}?d=monsterid&s=60`,
+    role: user.role,
+  };
 
   return (
     <div className={styles.profile}>
-      {loading && <Skeleton.Button active className={styles.skeleton} />}
-      {!loading && user && (
-        <Dropdown
-          trigger={["click"]}
-          menu={{
-            items: menuItems,
-          }}
-        >
-          <button
-            type="button"
-            className={styles.trigger}
-            aria-label={`Account menu for ${user.name || emailName}`}
-          >
-            <Avatar
-              className={styles.avatar}
-              size={30}
-              icon={<UserOutlined />}
-              src={`https://www.gravatar.com/avatar/${user?.gravatar}?d=monsterid`}
-            />
-            <span className={styles.name}>{user.name || emailName}</span>
-            <CaretDownOutlined className={styles.caret} />
-          </button>
-        </Dropdown>
-      )}
-      {!loading && !user && (
-        <Flex gap={8}>
-          <Button
-            onClick={() => router.push("/auth")}
-            icon={<LoginOutlined />}
-            type="primary"
-          >
-            Login
-          </Button>
-        </Flex>
-      )}
+      <AccountMenu user={profileUser} onLogout={logout}>
+        <TriggerFace user={profileUser} />
+      </AccountMenu>
     </div>
   );
 }

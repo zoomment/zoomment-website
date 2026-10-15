@@ -77,7 +77,7 @@ export default function Benefits() {
         {BENEFITS.map((benefit) => (
           <article
             key={benefit.title}
-            className={`panel panel--plain ${benefit.tint ?? ""} ${styles.item}`}
+            className={`panel panel--plain ${benefit.tint ? `${benefit.tint} panel--corner` : ""} ${styles.item}`}
             style={{ gridColumn: `span ${benefit.span}` }}
           >
             <h2 className={styles.title}>{benefit.title}</h2>

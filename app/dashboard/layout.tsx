@@ -1,8 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
+import AntdProvider from '@/components/AntdProvider';
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
+    <AntdProvider>
     <div className="container" style={{ paddingTop: 20, paddingBottom: 40 }}>
       <nav aria-label="Breadcrumb" style={{ margin: '0 0 14px' }}>
         <Link
@@ -24,6 +26,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         {children}
       </div>
     </div>
+    </AntdProvider>
   );
 };
 

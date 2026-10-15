@@ -5,9 +5,30 @@
 }
 
 .skeleton {
-  width: 96px !important;
-  min-width: 0 !important;
-  border-radius: 999px !important;
+  display: block;
+  width: 96px;
+  height: 40px;
+  border-radius: 999px;
+  border: 2px solid var(--rule);
+  background: var(--dots-ink), var(--sheet);
+}
+
+.login {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 18px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--sheet);
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  transition: background-color 160ms var(--ease-out);
+}
+.login:hover {
+  background: var(--yellow);
+  color: var(--ink);
 }
 
 .trigger {
@@ -33,6 +54,10 @@
 
 .avatar {
   flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
   border: 2px solid var(--ink);
   background: var(--paper);
 }

@@ -168,8 +168,10 @@ h5.ant-typography,
 }
 .display mark {
   background: var(--yellow);
+  background-clip: padding-box;
   color: var(--ink);
   border: var(--border);
+  border-image: url("/ink-frame.svg") 12 stretch;
   display: inline-block;
   margin-top: 0.1em;
   padding: 0.04em 0.14em 0;
@@ -189,7 +191,9 @@ h5.ant-typography,
 .panel {
   position: relative;
   border: var(--border-heavy);
+  border-image: url("/ink-frame.svg") 12 stretch;
   background: var(--sheet);
+  background-clip: padding-box;
   padding: 72px 28px 28px;
   min-width: 0;
 }
@@ -197,13 +201,35 @@ h5.ant-typography,
   padding-top: 28px;
 }
 .panel--magenta {
-  background: var(--dots-magenta), var(--sheet);
+  --tint: var(--dots-magenta);
 }
 .panel--yellow {
-  background: var(--dots-yellow), var(--sheet);
+  --tint: var(--dots-yellow);
 }
 .panel--cyan {
-  background: radial-gradient(rgba(0, 166, 232, 0.28) 1.8px, transparent 2px) 0 0 / 10px 10px, var(--sheet);
+  --tint: radial-gradient(rgba(0, 166, 232, 0.28) 1.8px, transparent 2px) 0 0 / 10px 10px;
+}
+.panel--magenta,
+.panel--yellow,
+.panel--cyan {
+  background: var(--tint), var(--sheet);
+}
+
+/* Text panels: the halftone is corner shading that fades out before the copy. */
+.panel--corner[class] {
+  background: var(--sheet);
+  background-clip: padding-box;
+  isolation: isolate;
+}
+.panel--corner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--tint);
+  -webkit-mask-image: radial-gradient(circle at 100% 0, #000 0, #000 14%, transparent 46%);
+  mask-image: radial-gradient(circle at 100% 0, #000 0, #000 14%, transparent 46%);
+  pointer-events: none;
 }
 .panel--ink {
   background: var(--ink);
@@ -245,48 +271,18 @@ h5.ant-typography,
 .balloon {
   position: relative;
   display: inline-block;
-  background: #fff;
-  border: var(--border);
-  border-radius: 50% / 46%;
-  padding: 22px 30px;
+  background: url("/balloon-left.svg") 0 0 / 100% 100% no-repeat;
+  padding: 22px 34px 44px;
   font-family: var(--font-lettering), cursive;
   font-size: 21px;
   line-height: 1.2;
   text-align: center;
   color: var(--ink);
-  max-width: 300px;
+  max-width: 320px;
+  filter: drop-shadow(0 2px 0 rgba(20, 20, 20, 0.08));
 }
-.balloon::before,
-.balloon::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-style: solid;
-}
-.balloon::before {
-  bottom: -28px;
-  left: 22%;
-  border-width: 28px 6px 0 18px;
-  border-color: var(--ink) transparent transparent transparent;
-  transform: skewX(-12deg);
-}
-.balloon::after {
-  bottom: -19px;
-  left: calc(22% + 5px);
-  border-width: 20px 3px 0 11px;
-  border-color: #fff transparent transparent transparent;
-  transform: skewX(-12deg);
-}
-.balloon--right::before {
-  left: auto;
-  right: 22%;
-  transform: skewX(12deg) scaleX(-1);
-}
-.balloon--right::after {
-  left: auto;
-  right: calc(22% + 5px);
-  transform: skewX(12deg) scaleX(-1);
+.balloon--right {
+  background-image: url("/balloon-right.svg");
 }
 
 .sfx {
@@ -357,8 +353,8 @@ h5.ant-typography,
   border: var(--border);
   padding: 18px 20px;
   font: 13px/1.65 ui-monospace, SFMono-Regular, Menlo, monospace;
-  white-space: pre;
-  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
   scrollbar-color: #555 var(--ink);
 }
 .snippet .tok-attr {
@@ -485,7 +481,7 @@ h5.ant-typography,
   }
   .balloon {
     font-size: 19px;
-    padding: 18px 24px;
+    padding: 18px 28px 38px;
   }
 }
 
@@ -502,4 +498,15 @@ h5.ant-typography,
 .prose h1.ant-typography {
   font-size: clamp(36px, 5vw, 64px);
   margin-bottom: 0.6em;
+}
+
+/* tinted panel shorthands reset the clip; keep the ink frame's gaps open to the page */
+.panel[class] {
+  background-clip: padding-box;
+}
+.panel--ink .btn-pop--ghost {
+  color: var(--ink);
+}
+.panel--ink[class] {
+  background-clip: border-box;
 }

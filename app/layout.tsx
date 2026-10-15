@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { AuthProvider } from "@/contexts/AuthContext";
-import { ConfigProvider } from "antd";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { openGraphImage } from "./shared-metadata";
 import { body, display, lettering } from "./fonts";
-import { theme } from "./theme";
 import "normalize.css";
 import "./globals.css";
 
@@ -34,15 +31,11 @@ export default function RootLayout({
       className={`${body.variable} ${display.variable} ${lettering.variable}`}
     >
       <body>
-        <AntdRegistry>
-          <ConfigProvider theme={theme}>
-            <AuthProvider>
-              <Header />
-              <main style={{ minHeight: "calc(100vh - 68px)" }}>{children}</main>
-              <Footer />
-            </AuthProvider>
-          </ConfigProvider>
-        </AntdRegistry>
+        <AuthProvider>
+          <Header />
+          <main style={{ minHeight: "calc(100vh - 68px)" }}>{children}</main>
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

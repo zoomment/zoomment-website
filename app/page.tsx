@@ -23,8 +23,9 @@ export default function Home() {
   return (
     <div className={`container ${styles.home}`}>
       <section className={styles.masthead}>
-        <h1 className="display display--xl">
-          Let your readers <mark>talk back</mark>
+        <h1 className={`display display--xl ${styles.headline}`}>
+          <span className={styles.line}>Let your readers</span>{" "}
+          <mark>talk back</mark>
         </h1>
         <p className={styles.promise}>
           Free, open-source comments for any website. Paste one snippet, and
@@ -97,11 +98,10 @@ export default function Home() {
         />
       </svg>
 
-      <section className={`panel ${styles.live}`} aria-labelledby="live-title">
-        <span className="caption">4. Your turn</span>
+      <section className={`panel panel--plain ${styles.live}`} aria-labelledby="live-title">
         <div className={styles.liveHead}>
           <h2 id="live-title" className="display display--lg">
-            This one is real
+            4. Your turn. <mark>It&apos;s live.</mark>
           </h2>
           <p>
             The widget below is Zoomment running on this page. Leave a comment
@@ -116,8 +116,7 @@ export default function Home() {
       </p>
 
       <section className={styles.why} aria-label="Why Zoomment">
-        <div className={`panel panel--yellow ${styles.free}`}>
-          <span className="caption">Free</span>
+        <div className={`panel panel--plain panel--yellow panel--corner ${styles.free}`}>
           <p className="display display--lg">No ads. No paid tiers. Ever.</p>
           <p className={styles.copy}>
             Zoomment is paid for by people who use it, through GitHub Sponsors
@@ -142,7 +141,7 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className={`panel panel--cyan ${styles.login}`}>
+        <div className={`panel panel--cyan panel--corner ${styles.login}`}>
           <span className="caption">No GitHub login</span>
           <span className={`balloon balloon--right ${styles.loginBalloon}`}>
             Wait, I can just… comment?

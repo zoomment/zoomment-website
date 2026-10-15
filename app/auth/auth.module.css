@@ -10,7 +10,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 18px;
-  padding: 84px 40px 40px;
+  padding: 40px;
 }
 .card form {
   width: 100%;
@@ -38,6 +38,6 @@
 
 @media (max-width: 760px) {
   .card {
-    padding: 72px 20px 24px;
+    padding: 28px 20px 24px;
   }
 }

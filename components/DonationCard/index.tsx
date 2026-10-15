@@ -17,7 +17,7 @@ export const DonationCard = ({
   tint?: string;
 }) => {
   return (
-    <article className={`panel panel--plain ${tint} ${styles.card}`}>
+    <article className={`panel panel--plain ${tint} ${tint ? 'panel--corner' : ''} ${styles.card}`}>
       <div className={styles.logo}>
         <Image src={logo} width={64} height={64} alt="" />
       </div>
